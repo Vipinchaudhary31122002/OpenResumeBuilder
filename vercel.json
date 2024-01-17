@@ -1,6 +1,5 @@
 {
   "buildCommand": "npm run build",
-  "framework": "null",
   "outputDirectory": "./frontend/dist",
   "installCommand": "npm install",
   "rewrites": [
