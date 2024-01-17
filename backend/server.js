@@ -14,6 +14,10 @@ app.get("/client", (req, res) => {
   res.send("Client page Hello World!");
 });
 
+app.get("/client1", (req, res) => {
+  res.send("Client page Hello World!");
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
