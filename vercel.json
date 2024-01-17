@@ -2,7 +2,7 @@
   "buildCommand": "npm run build",
   "outputDirectory": "./frontend/dist",
   "installCommand": "npm install",
-  "routes": [
+  "rewrites": [
     {
       "source": "/(.*)",
       "destination": "./backend/server.js"

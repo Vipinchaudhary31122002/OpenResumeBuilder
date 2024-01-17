@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require('path');
 const app = express();
 const port = 3000;
 
@@ -17,6 +18,8 @@ app.get("/client", (req, res) => {
 app.get("/client1", (req, res) => {
   res.send("Client page Hello World!");
 });
+
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
