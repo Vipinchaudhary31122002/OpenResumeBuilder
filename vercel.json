@@ -1,0 +1,11 @@
+{
+  "buildCommand": "npm run build",
+  "framework": "null",
+  "outputDirectory": "./frontend/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "./backend/server.js"
+    }
+  ]
+}
