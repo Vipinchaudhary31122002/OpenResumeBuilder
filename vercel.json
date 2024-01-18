@@ -1,11 +1,5 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "./frontend/dist",
-  "installCommand": "npm run installpackages",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "./backend/server.js"
-    }
-  ]
+  "installCommand": "npm run installpackages"
 }
