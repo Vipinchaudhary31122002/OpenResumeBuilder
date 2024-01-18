@@ -2,7 +2,7 @@
   "builds": [
     {
       "src": "frontend/*",
-      "use": "@vercel/static-build",
+      "use": "@vercel/vite",
       "config": {
         "buildCommand": "npm run buildfronted",
         "outputDirectory": "./frontend/dist"
