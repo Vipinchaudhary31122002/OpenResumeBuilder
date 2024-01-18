@@ -6,11 +6,11 @@ export default defineConfig({
   // base: process.env.NODE_ENV === 'production' ? '/subpath/' : '/',
   base: '/',
   plugins: [react()],
-  // build: {
-  //   rollupOptions: {
-  //     external: ['react-router-dom'],
-  //   },
-  // },
+  build: {
+    rollupOptions: {
+      external: ['react-router-dom'],
+    },
+  },
   // server: {
   //   // proxy: {
   //   // //   // Your server-side routes
