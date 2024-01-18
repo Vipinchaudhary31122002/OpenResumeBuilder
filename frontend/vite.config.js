@@ -11,12 +11,12 @@ export default defineConfig({
       external: ['react-router-dom'],
     },
   },
-  // server: {
-  //   // proxy: {
-  //   // //   // Your server-side routes
-  //   //   '/api': 'http://localhost:3000',
-  //   // },
-  //   // Enable historyApiFallback to ensure client-side routing works
-  //   // historyApiFallback: true,
-  // },
+  server: {
+    // proxy: {
+    //  // Your server-side routes
+    //   // '/api': 'http://localhost:3000',
+    // },
+    // Enable historyApiFallback to ensure client-side routing works
+    historyApiFallback: true,
+  },
 })

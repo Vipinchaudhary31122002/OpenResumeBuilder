@@ -1,7 +1,15 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "./frontend/dist",
-  "installCommand": "npm install",
+  "builds": [
+    {
+      "src": "frontend/*",
+      "use": "@vercel/static-build",
+      "config": {
+        "buildCommand": "npm run buildfronted",
+        "outputDirectory": "./frontend/dist"
+      }
+    }
+  ],
+  "installCommand": "npm installpackages",
   "rewrites": [
     {
       "source": "/(.*)",
