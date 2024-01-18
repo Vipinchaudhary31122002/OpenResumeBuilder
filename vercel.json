@@ -1,14 +1,6 @@
 {
-  "builds": [
-    {
-      "src": "frontend/*",
-      "use": "@vercel/vite",
-      "config": {
-        "buildCommand": "npm run buildfronted",
-        "outputDirectory": "./frontend/dist"
-      }
-    }
-  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "./frontend/dist",
   "installCommand": "npm installpackages",
   "rewrites": [
     {
