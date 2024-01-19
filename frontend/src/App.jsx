@@ -1,23 +1,25 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Header from "./Header";
+import Homepage from "./Homepage";
 
 function App() {
   return (
     <>
+    
       <Routes>
-        <Route exact path="/">
+        <Route exact path="/" element={<Homepage />}>
           <Route index element={<Header info="Midguard" />} />
           <Route
-            path="hell"
+            path="/hell"
             element={<Header info="The Hell of the universe" />}
           />
           <Route
-            path="heaven"
+            path="/heaven"
             element={<Header info="The Heaven of the universe" />}
           />
-          <Route path="*" element={<Header info="404 page not found" />} />
         </Route>
+        <Route path="*" element={<Header info="404 page not found" />} />
       </Routes>
     </>
   );

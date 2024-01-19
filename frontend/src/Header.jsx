@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-import { Outlet } from "react-router-dom"
+// import { Outlet } from "react-router-dom"
 
 const Header = (props) => {
   return (
     <>
     <h1>{props.info}</h1>
-    <Outlet/>
+    {/* <Outlet/> */}
     </>
   )
 }
