@@ -10,13 +10,13 @@ app.get('/*', (req, res) => {
 });
 
 // Admin
-app.use('/admin', express.static(path.join(__dirname, '../admin/dist')));
+app.use('/admin/*', express.static(path.join(__dirname, '../admin/dist')));
 app.get('/admin/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../admin/dist/index.html'));
 });
 
 // Client
-app.use('/client', express.static(path.join(__dirname, '../client/dist')));
+app.use('/client/*', express.static(path.join(__dirname, '../client/dist')));
 app.get('/client/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
