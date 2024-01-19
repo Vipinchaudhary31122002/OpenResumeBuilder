@@ -18,8 +18,8 @@ services:
         value: production
 
  - name: backend
-    buildCommand: cd backedn && npm install
-    startCommand: npm start
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
     envVars:
       - key: NODE_ENV
         value: production
