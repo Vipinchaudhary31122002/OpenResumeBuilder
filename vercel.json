@@ -1,24 +1,19 @@
 {
-  "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "./frontend/dist",
   "installCommand": "npm run installpackages",
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/"
-    }
-  ],
-  "builds": [
+      "destination": "/$1"
+    },
     {
-      "src": "./backend/server.js",
-      "use": "@now/node"
-    }
-  ],
-  "routes": [
+      "source": "/admin/(.*)",
+      "destination": "/admin/$1"
+    },
     {
-      "src": "/(.*)",
-      "dest": "./backend/server.js"
+      "source": "/client/(.*)",
+      "destination": "/client/$1"
     }
   ]
 }
