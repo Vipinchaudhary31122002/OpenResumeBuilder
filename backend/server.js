@@ -4,8 +4,20 @@ const app = express();
 const port = 3000;
 
 app.use('/', express.static(path.join(__dirname, '../frontend/dist')));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname));
+});
+
 app.use('/admin', express.static(path.join(__dirname, '../admin/dist')));
+app.get('/admin', (req, res) => {
+  res.sendFile(path.join(__dirname));
+});
+
 app.use('/client', express.static(path.join(__dirname, '../client/dist')));
+app.get('/client', (req, res) => {
+  res.sendFile(path.join(__dirname));
+});
+
 app.use((req, res) => {
   res.send("404 page")
 });
@@ -13,18 +25,6 @@ app.use((req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
 });
-// app.get('/', (req, res) => {
-//   console.log('base url hit')
-//   res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
-// });
 
-// app.get('/admin', (req, res) => {
-//   console.log('admin url hit')
-//   res.sendFile(path.join(__dirname, '../admin/dist/index.html'));
-// });
 
-// app.get('/client', (req, res) => {
-//   console.log('client url hit')
-//   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
-// });
 
