@@ -1,0 +1,26 @@
+services:
+  - name: frontend
+    buildCommand: cd frontend && npm install && npm run build
+    envVars:
+      - key: NODE_ENV
+        value: production
+
+  - name: admin
+    buildCommand: cd admin && npm install && npm run build
+    envVars:
+      - key: NODE_ENV
+        value: production
+
+  - name: client
+    buildCommand: cd client && npm install && npm run build
+    envVars:
+      - key: NODE_ENV
+        value: production
+
+ - name: backend
+    buildCommand: cd backedn && npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+buildCommand: npm ci --ignore-scripts
