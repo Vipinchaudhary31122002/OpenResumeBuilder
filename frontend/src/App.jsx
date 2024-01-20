@@ -2,7 +2,6 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Header from "./Header";
 import Homepage from "./Homepage";
-import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
         </Route>
         <Route path="*" element={<Header info="404 page not found" />} />
       </Routes>
-      <Analytics/>
     </>
   );
 }
