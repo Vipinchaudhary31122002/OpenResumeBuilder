@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require('path');
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 
 // Admin
@@ -40,9 +40,12 @@ app.use('_', (req, res) => {
   res.send("404 page")
 });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Example app listening on port http://localhost:${port}`);
+// });
 
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
 
 
