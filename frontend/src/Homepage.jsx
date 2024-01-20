@@ -30,6 +30,13 @@ const Homepage = () => {
       >
         Heaven
       </button>
+      <br />
+      <a href="https://openresumebuilder.vercel.app/admin">
+        <button className="btn btn-primary m-2">React Admin</button>
+      </a>
+      <a href="https://openresumebuilder.vercel.app/client">
+        <button className="btn btn-primary m-2">React Client</button>
+      </a>
       <Outlet />
     </>
   );

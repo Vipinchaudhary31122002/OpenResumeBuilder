@@ -1,7 +1,34 @@
 const express = require("express");
 const path = require('path');
 const app = express();
-const port = 3000;
+const port = 4000;
+
+
+// Admin
+app.use('/admin', express.static(path.join(__dirname, '../admin/dist')));
+app.get('https://openresumebuilder.vercel.app//admin/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../admin/dist/index.html'));
+});
+
+// Client
+app.use('/client', express.static(path.join(__dirname, '../client/dist')));
+app.get('https://openresumebuilder.vercel.app//client/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
+
+app.get('https://openresumebuilder.vercel.app//api/data', (req, res)=>{
+  res.json({
+    "first": {
+      "name": "demon",
+      "location": "hell"
+    },
+    "seond": {
+      "name": "lucifer",
+      "location": "heaven"
+
+    }
+  })
+})
 
 // Frontend
 app.use('/', express.static(path.join(__dirname, '../frontend/dist')));
@@ -9,20 +36,7 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
 });
 
-// Admin
-app.use('/admin/*', express.static(path.join(__dirname, '../admin/dist')));
-app.get('/admin/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../admin/dist/index.html'));
-});
-
-// Client
-app.use('/client/*', express.static(path.join(__dirname, '../client/dist')));
-app.get('/client/*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
-});
-
-
-app.use((req, res) => {
+app.use('_', (req, res) => {
   res.send("404 page")
 });
 

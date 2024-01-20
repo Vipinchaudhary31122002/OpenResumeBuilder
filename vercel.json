@@ -1,6 +1,11 @@
 {
-  "version": 2,
-  "name": "openresumebuilder",
-  "builds": [{ "src": "./backend/server.js", "use": "@vercel/node" }],
-  "routes": [{ "src": "/(.*)", "dest": "./backend/server.js" }]
+  "buildCommand": "npm run build",
+  "outputDirectory": "./frontend/dist",
+  "installCommand": "npm run installpackages",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
 }
