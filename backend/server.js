@@ -6,17 +6,17 @@ const port = 4000;
 
 // Admin
 app.use('/admin', express.static(path.join(__dirname, '../admin/dist')));
-app.get('https://openresumebuilder.vercel.app/admin/*', (req, res) => {
+app.get('/admin/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../admin/dist/index.html'));
 });
 
 // Client
 app.use('/client', express.static(path.join(__dirname, '../client/dist')));
-app.get('https://openresumebuilder.vercel.app/client/*', (req, res) => {
+app.get('/client/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
-app.get('https://openresumebuilder.vercel.app//api/data', (req, res)=>{
+app.get('/api/data', (req, res)=>{
   res.json({
     "first": {
       "name": "demon",

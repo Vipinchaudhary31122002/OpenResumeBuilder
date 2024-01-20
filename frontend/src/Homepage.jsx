@@ -1,4 +1,14 @@
 import { Outlet, useNavigate } from "react-router-dom";
+import axios from "axios";
+
+const fetchData = async () => {
+  try {
+    const response = await axios.get("/api/data");
+    console.log(response.data);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
 
 const Homepage = () => {
   // useNavigate hook used to navigate bw the nested routes
@@ -31,12 +41,16 @@ const Homepage = () => {
         Heaven
       </button>
       <br />
-      <a href="https://openresumebuilder.vercel.app/admin">
+      <a href="/admin">
         <button className="btn btn-primary m-2">React Admin</button>
       </a>
-      <a href="https://openresumebuilder.vercel.app/client">
+      <a href="/client">
         <button className="btn btn-primary m-2">React Client</button>
       </a>
+      <button className="btn btn-primary m-2" onClick={fetchData}>
+        Data fetch
+      </button>
+
       <Outlet />
     </>
   );
