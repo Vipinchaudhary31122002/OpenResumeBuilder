@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "OpenResumeBuilder is resume building website using MERN stack.",
   "main": "server.js",
+  "type": "commonjs",
   "scripts": {
-    "start": "server.js"
+    "start": "server.js",
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
