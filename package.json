@@ -6,11 +6,10 @@
   "type": "commonjs",
   "scripts": {
     "start": "node server.js",
-    "installpackages": "npm run installbackend && npm run installlandingpage",
+    "installpackages": "npm run installbackend && npm run installapp",
     "installbackend": "npm install",
-    "installlandingpage": "cd ./apps/landingpage && npm install",
-    "buildapps": "npm run buildlandingpage",
-    "buildlandingpage": "cd ./apps/landingpage && npm run build",
+    "installlapp": "cd ./app && npm install",
+    "buildapp": "cd ./app && npm run build",
     "dev": "nodemon server.js"
   },
   "keywords": [],

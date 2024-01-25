@@ -4,7 +4,7 @@ function App() {
 
   return (
     <>
-      <h1>LANDING PAGE APP</h1>
+      <h1>React App Is Working</h1>
     </>
   )
 }

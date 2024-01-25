@@ -8,9 +8,9 @@ const port = process.env.PORT;
 
 
 // LandingPage
-app.use("/", express.static(path.join(__dirname, "./apps/landingpage/dist")));
+app.use("/", express.static(path.join(__dirname, "./app/dist")));
 app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./apps/landingpage/dist/index.html"));
+  res.sendFile(path.join(__dirname, "./app/dist/index.html"));
 });
 
 // Error handling middleware
