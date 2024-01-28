@@ -6,7 +6,7 @@ const Dashboard = () => {
       <Link to="/" className="btn btn-primary m-2">
         Go To Homepage
       </Link>
-      <Link to="resume" className="btn btn-primary m-2">
+      <Link to="resumes" className="btn btn-primary m-2">
         Resume
       </Link>
       <Link to="settings" className="btn btn-primary m-2">

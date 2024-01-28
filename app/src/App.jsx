@@ -25,17 +25,17 @@ function App() {
   return (
     <Suspense fallback={<h1>Loading...</h1>}>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/auth" element={<AuthPage />}>
-          <Route index path="signin" element={<SignIn />} />
-          <Route path="signup" element={<SignUp />} />
-          <Route path="forgotpassword" element={<ForgotPassword />} />
+        <Route exact path="/" element={<HomePage />} />
+        <Route exact path="auth" element={<AuthPage />}>
+          <Route exact index path="signin" element={<SignIn />} />
+          <Route exact path="signup" element={<SignUp />} />
+          <Route exact path="forgotpassword" element={<ForgotPassword />} />
         </Route>
-        <Route path="/dashboard" element={<Dashboard />}>
-          <Route index path="resume" element={<Resume />} />
-          <Route path="settings" element={<Settings />} />
+        <Route exact path="dashboard" element={<Dashboard />}>
+          <Route exact index path="resumes" element={<Resume />} />
+          <Route exact path="settings" element={<Settings />} />
         </Route>
-        <Route path="*" element={<ErrorPage />} />
+        <Route exact path="*" element={<ErrorPage />} />
       </Routes>
     </Suspense>
   );

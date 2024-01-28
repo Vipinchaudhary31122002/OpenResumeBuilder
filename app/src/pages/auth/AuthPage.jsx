@@ -12,6 +12,9 @@ const AuthenicationPage = () => {
       <Link to="forgotpassword" className="btn btn-primary m-2">
         Forgot Password Form
       </Link>
+      <Link to="/" className="btn btn-primary m-2">
+        Go To Homepage
+      </Link>
       <h1>Welcome to AuthenticationPage</h1>
       <Outlet />
     </>
