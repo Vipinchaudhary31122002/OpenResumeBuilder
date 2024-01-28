@@ -9,6 +9,9 @@ const Dashboard = () => {
       <Link to="settings" className="btn btn-primary m-2">
         Settings
       </Link>
+      <Link to="/builder" className="btn btn-primary m-2">
+        Builder
+      </Link>
       <Link to="/" className="btn btn-primary m-2">
         Go To Homepage
       </Link>
