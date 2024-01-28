@@ -1,5 +1,5 @@
 import { Suspense, lazy } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 // Lazy load components
 const HomePage = lazy(() => import("./pages/home/HomePage"));
@@ -25,13 +25,13 @@ function App() {
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="auth" element={<AuthPage />}>
-          <Route index element={<SignIn />} />
+          <Route index element={<Navigate to="signin"/>} />
           <Route path="signin" element={<SignIn />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="forgotpassword" element={<ForgotPassword />} />
         </Route>
         <Route exact path="dashboard" element={<Dashboard />}>
-          <Route index element={<Resume />} />
+          <Route index element={<Navigate to="resumes"/>} />
           <Route path="resumes" element={<Resume />} />
           <Route path="settings" element={<Settings />} />
         </Route>
