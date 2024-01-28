@@ -1,27 +1,18 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const AuthenicationPage = () => {
-  // useNavigate hook used to navigate bw the nested routes
-  const navigate = useNavigate();
-  // navigate to the specifiec path
-  const handleLinkClick = (path) => {
-    navigate(path);
-  };
   return (
     <>
-      <button
-        className="btn btn-primary m-2"
-        onClick={() => handleLinkClick("signup")}
-      >
+      <Link to="signup" className="btn btn-primary m-2">
         SignUp Form
-      </button>
-      <button
-        className="btn btn-primary m-2"
-        onClick={() => handleLinkClick("/auth/signin")}
-      >
+      </Link>
+      <Link to="signin" className="btn btn-primary m-2">
         SignIn Form
-      </button>
-      <h1>AuthenticationPage</h1>
+      </Link>
+      <Link to="forgotpassword" className="btn btn-primary m-2">
+        Forgot Password Form
+      </Link>
+      <h1>Welcome to AuthenticationPage</h1>
       <Outlet />
     </>
   );

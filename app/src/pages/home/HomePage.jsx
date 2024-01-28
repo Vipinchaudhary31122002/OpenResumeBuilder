@@ -7,10 +7,10 @@ const HomePage = () => {
         <h1>HomePage</h1>
         <div className="container d-flex justify-content-center">
           <Link to="/auth/signin" type="button" className="btn btn-primary m-1">
-            GetStarted
+            Get Started
           </Link>
           <Link to="/dashboard" type="button" className="btn btn-primary m-1">
-            GoToDashboard
+            Go To Dashboard
           </Link>
           <Link to="/" type="button" className="btn btn-primary m-1">
             LogOut
