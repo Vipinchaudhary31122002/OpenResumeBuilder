@@ -3,21 +3,18 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 // Lazy load components
 const HomePage = lazy(() => import("./pages/home/HomePage"));
-const AuthPage = lazy(() => import("./pages/auth/AuthPage"));
 const Dashboard = lazy(() => import("./pages/dashboard/Dashboard"));
 const ErrorPage = lazy(() => import("./pages/error/ErrorPage"));
-const SignUp = lazy(() => import("./pages/auth/components/SignUp"));
-const SignIn = lazy(() => import("./pages/auth/components/SignIn"));
+const SignUp = lazy(() => import("./pages/home/components/SignUp"));
+const SignIn = lazy(() => import("./pages/home/components/SignIn"));
 const ForgotPassword = lazy(() =>
-  import("./pages/auth/components/ForgotPassword")
+  import("./pages/home/components/ForgotPassword")
 );
 const Resume = lazy(() => import("./pages/dashboard/components/resume/Resume"));
 const Settings = lazy(() =>
   import("./pages/dashboard/components/settings/Settings")
 );
-const Builder = lazy(() =>
-  import("./pages/builder/Builder")
-);
+const Builder = lazy(() => import("./pages/builder/Builder"));
 
 // importing stylesheet
 import "./App.css";
@@ -26,8 +23,7 @@ function App() {
   return (
     <Suspense fallback={<h1>Loading...</h1>}>
       <Routes>
-        <Route exact path="/" element={<HomePage />} />
-        <Route exact path="/auth" element={<AuthPage />}>
+        <Route exact path="/" element={<HomePage />}>
           <Route index element={<Navigate to="signin" />} />
           <Route path="signin" element={<SignIn />} />
           <Route path="signup" element={<SignUp />} />
