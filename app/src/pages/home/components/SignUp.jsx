@@ -1,7 +1,6 @@
 const SignUp = () => {
   return (
     <>
-      <h1>SignUp Form</h1>
       <form>
         <div className="mb-3">
           <input

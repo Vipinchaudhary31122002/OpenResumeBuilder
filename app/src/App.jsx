@@ -24,7 +24,6 @@ function App() {
     <Suspense fallback={<h1>Loading...</h1>}>
       <Routes>
         <Route exact path="/" element={<HomePage />}>
-          <Route index element={<Navigate to="signin" />} />
           <Route path="signin" element={<SignIn />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="forgotpassword" element={<ForgotPassword />} />
