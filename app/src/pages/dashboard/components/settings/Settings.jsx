@@ -1,3 +1,5 @@
+import Button from "react-bootstrap/Button";
+
 const Settings = () => {
   return (
     <>
@@ -48,7 +50,7 @@ const Settings = () => {
         <hr />
         <h2>Danger Zone</h2>
         <form className="DeleteForm">
-          {/* <Button variant="danger">Delete my account</Button> */}
+          <Button variant="danger">Delete my account</Button>
         </form>
       </div>
     </>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Resume = () => {
   return (
     <>
-      <div className="card" style={{ width: "18rem" }}>
+      <div className="card mx-1" style={{ width: "18rem" }}>
         <Link to="/builder">
           <BsPlusLg className="card-img-top" style={{ height: "18rem" }} />
         </Link>
