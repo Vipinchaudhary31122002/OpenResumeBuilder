@@ -7,7 +7,6 @@ const ForgotPassword = () => {
             type="email"
             className="form-control"
             id="exampleInputEmail1"
-            aria-describedby="emailHelp"
             placeholder="Enter your email"
           />
         </div>

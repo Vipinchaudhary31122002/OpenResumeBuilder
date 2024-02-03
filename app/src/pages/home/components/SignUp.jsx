@@ -6,16 +6,7 @@ const SignUp = () => {
           <input
             type="text"
             className="form-control"
-            placeholder="Enter your First name"
-            aria-label="First name"
-          />
-        </div>
-        <div className="mb-3">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Enter your Last name"
-            aria-label="Last name"
+            placeholder="Enter your username"
           />
         </div>
         <div className="mb-3">
@@ -23,7 +14,6 @@ const SignUp = () => {
             type="email"
             className="form-control"
             id="exampleInputEmail1"
-            aria-describedby="emailHelp"
             placeholder="Enter your email"
           />
         </div>

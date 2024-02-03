@@ -1,6 +1,6 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
+import { useState } from "react";
 
 const HomePage = () => {
   const [show, setShow] = useState(false);
@@ -14,14 +14,12 @@ const HomePage = () => {
     setShow(true);
     setModalTitle(title);
   };
-
   return (
     <>
       <Modal
         show={show}
         onHide={handleClose}
         size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
         centered
       >
         <Modal.Header closeButton>
@@ -54,7 +52,6 @@ const HomePage = () => {
           </Link>
         </Modal.Footer>
       </Modal>
-
       <div className="container-fluid d-flex flex-column justify-content-center align-items-center">
         <h1>HomePage</h1>
         <div className="container d-flex justify-content-center">

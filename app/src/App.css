@@ -6,11 +6,3 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   scroll-behavior: smooth;
 }
-
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
