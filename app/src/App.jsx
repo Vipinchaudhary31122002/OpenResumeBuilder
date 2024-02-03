@@ -1,42 +1,32 @@
-import { Suspense, lazy } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 // Lazy load components
-const HomePage = lazy(() => import("./pages/home/HomePage"));
-const Dashboard = lazy(() => import("./pages/dashboard/Dashboard"));
-const ErrorPage = lazy(() => import("./pages/error/ErrorPage"));
-const SignUp = lazy(() => import("./pages/home/components/SignUp"));
-const SignIn = lazy(() => import("./pages/home/components/SignIn"));
-const ForgotPassword = lazy(() =>
-  import("./pages/home/components/ForgotPassword")
-);
-const Resume = lazy(() => import("./pages/dashboard/components/resume/Resume"));
-const Settings = lazy(() =>
-  import("./pages/dashboard/components/settings/Settings")
-);
-const Builder = lazy(() => import("./pages/builder/Builder"));
-
-// importing stylesheet
-import "./App.css";
+import HomePage from "./pages/home/HomePage";
+import Dashboard from "./pages/dashboard/Dashboard";
+import ErrorPage from "./pages/error/ErrorPage";
+import SignIn from "./pages/home/components/SignIn";
+import SignUp from "./pages/home/components/SignUp";
+import ForgotPassword from "./pages/home/components/ForgotPassword";
+import Resume from "./pages/dashboard/components/resume/Resume";
+import Settings from "./pages/dashboard/components/settings/Settings";
+import Builder from "./pages/builder/Builder";
 
 function App() {
   return (
-    <Suspense fallback={<h1>Loading...</h1>}>
-      <Routes>
-        <Route exact path="/" element={<HomePage />}>
-          <Route path="signin" element={<SignIn />} />
-          <Route path="signup" element={<SignUp />} />
-          <Route path="forgotpassword" element={<ForgotPassword />} />
-        </Route>
-        <Route exact path="/dashboard" element={<Dashboard />}>
-          <Route index element={<Navigate to="resumes" />} />
-          <Route path="resumes" element={<Resume />} />
-          <Route path="settings" element={<Settings />} />
-        </Route>
-        <Route exact path="/builder" element={<Builder />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
-    </Suspense>
+    <Routes>
+      <Route exact path="/" element={<HomePage />}>
+        <Route path="signin" element={<SignIn />} />
+        <Route path="signup" element={<SignUp />} />
+        <Route path="forgotpassword" element={<ForgotPassword />} />
+      </Route>
+      <Route exact path="/dashboard" element={<Dashboard />}>
+        <Route index element={<Navigate to="resumes" />} />
+        <Route path="resumes" element={<Resume />} />
+        <Route path="settings" element={<Settings />} />
+      </Route>
+      <Route exact path="/builder" element={<Builder />} />
+      <Route path="*" element={<ErrorPage />} />
+    </Routes>
   );
 }
 

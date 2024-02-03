@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import "./navbar.css";
 import { FaHome } from "react-icons/fa";
 
 const Navbar = () => {
@@ -8,6 +7,14 @@ const Navbar = () => {
       <div
         className="SideNavbar d-flex justify-content-center
       align-items-center"
+        style={{
+          width: "200px",
+          height: "100%",
+          background: "black",
+          position: "fixed",
+          top: 0,
+          left: 0,
+        }}
       >
         <div
           className="btn-group-vertical"
