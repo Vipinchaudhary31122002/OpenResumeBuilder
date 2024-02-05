@@ -6,7 +6,7 @@ const Resume = () => {
     <>
       <div className="card mx-1" style={{ width: "18rem" }}>
         <Link to="/builder">
-          <BsPlusLg className="card-img-top" style={{ height: "18rem" }} />
+          <BsPlusLg className="card-img-top" style={{ height: "18rem", color: "black" }} />
         </Link>
         <div className="card-body">
           <p className="card-text">

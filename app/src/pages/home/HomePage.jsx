@@ -16,12 +16,7 @@ const HomePage = () => {
   };
   return (
     <>
-      <Modal
-        show={show}
-        onHide={handleClose}
-        size="lg"
-        centered
-      >
+      <Modal show={show} onHide={handleClose} size="lg" centered>
         <Modal.Header closeButton>
           <Modal.Title>{modalTitle}</Modal.Title>
         </Modal.Header>
