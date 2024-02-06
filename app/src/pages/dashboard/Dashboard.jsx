@@ -1,9 +1,10 @@
-import { Outlet, Link, useNavigate} from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FaHome } from "react-icons/fa";
 import Navbar from "react-bootstrap/Navbar";
 import Dropdown from "react-bootstrap/Dropdown";
 import Modal from "react-bootstrap/Modal";
+import Resume from "./components/resume/Resume";
 
 const Dashboard = () => {
   const [show, setShow] = useState(false);
@@ -11,7 +12,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const handleClose = () => {
     setShow(false);
-    navigate("resumes");
+    navigate("/dashboard");
   };
   const handleShow = (title) => {
     setShow(true);
@@ -51,21 +52,21 @@ const Dashboard = () => {
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Link
-                to="settings/account"
+                to="/dashboard/settings/account"
                 className="btn btn-primary m-2"
                 onClick={() => handleShow("Account Settings")}
               >
                 Account
               </Link>
               <Link
-                to="settings/passwordchange"
+                to="/dashboard/settings/passwordchange"
                 className="btn btn-primary m-2"
                 onClick={() => handleShow("Password Change Settings")}
               >
                 Password Change
               </Link>
               <Link
-                to="settings/deleteaccount"
+                to="/dashboard/settings/deleteaccount"
                 className="btn btn-primary m-2"
                 onClick={() => handleShow("Delete Account Settings")}
               >
@@ -75,7 +76,7 @@ const Dashboard = () => {
           </Dropdown>
         </Navbar.Collapse>
       </Navbar>
-      <Outlet />
+      <Resume />
     </>
   );
 };

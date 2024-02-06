@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 // importing components
 import HomePage from "./pages/home/HomePage";
@@ -7,7 +7,6 @@ import ErrorPage from "./pages/error/ErrorPage";
 import SignIn from "./pages/home/components/SignIn";
 import SignUp from "./pages/home/components/SignUp";
 import ForgotPassword from "./pages/home/components/ForgotPassword";
-import Resume from "./pages/dashboard/components/resume/Resume";
 import Builder from "./pages/builder/Builder";
 import AccountSettings from "./pages/dashboard/components/AccountSettings";
 import PasswordChangeSettings from "./pages/dashboard/components/PasswordChangeSettings";
@@ -28,8 +27,6 @@ function App() {
         </Route>
         {/* dashboard route */}
         <Route exact path="/dashboard" element={<Dashboard />}>
-          <Route index element={<Navigate to="resumes" />} />
-          <Route path="resumes" element={<Resume />} />
           <Route path="settings">
             <Route path="account" element={<AccountSettings />} />
             <Route path="passwordchange" element={<PasswordChangeSettings />} />

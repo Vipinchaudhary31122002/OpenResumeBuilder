@@ -25,21 +25,21 @@ const HomePage = () => {
         </Modal.Body>
         <Modal.Footer>
           <Link
-            to="signup"
+            to="/signup"
             className="btn btn-primary m-2"
             onClick={() => handleShow("Sign Up")}
           >
             SignUp
           </Link>
           <Link
-            to="signin"
+            to="/signin"
             className="btn btn-primary m-2"
             onClick={() => handleShow("Sign In")}
           >
             SignIn
           </Link>
           <Link
-            to="forgotpassword"
+            to="/forgotpassword"
             className="btn btn-primary m-2"
             onClick={() => handleShow("Forgot Password")}
           >
@@ -51,7 +51,7 @@ const HomePage = () => {
         <h1>HomePage</h1>
         <div className="container d-flex justify-content-center">
           <Link
-            to="signin"
+            to="/signin"
             type="button"
             onClick={() => handleShow("Sign In")}
             className="btn btn-primary m-1"
