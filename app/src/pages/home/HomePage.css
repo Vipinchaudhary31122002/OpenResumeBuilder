@@ -1,0 +1,6 @@
+.HomePage{
+    height: 100vh;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+}

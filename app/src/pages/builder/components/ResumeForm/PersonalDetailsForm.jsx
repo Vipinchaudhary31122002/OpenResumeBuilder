@@ -1,4 +1,4 @@
-const PersonalForm = () => {
+const PersonalDetailsForm = () => {
   return (
     <>
       <form>
@@ -25,4 +25,4 @@ const PersonalForm = () => {
   );
 };
 
-export default PersonalForm;
+export default PersonalDetailsForm;
