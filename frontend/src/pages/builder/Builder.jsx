@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Builder.css";
-import { House } from "react-bootstrap-icons";
+import { FaHome } from "react-icons/fa";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import ResumeForm from "./components/ResumeForm/ResumeForm";
@@ -17,7 +17,8 @@ const Builder = () => {
       >
         <Navbar.Collapse className="justify-content-center">
           <Link to="/dashboard" className="btn btn-primary mx-2">
-            <House />
+            {/* <House /> */}
+            <FaHome />
           </Link>
           <Button className="btn btn-primary">Download Pdf</Button>
         </Navbar.Collapse>

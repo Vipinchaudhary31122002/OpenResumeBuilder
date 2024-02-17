@@ -1,4 +1,5 @@
-import { Plus } from "react-bootstrap-icons";
+// import { Plus } from "react-bootstrap-icons";
+import {BsPlus} from "react-icons/bs"
 import { Link } from "react-router-dom";
 
 const Resume = () => {
@@ -6,7 +7,7 @@ const Resume = () => {
     <>
       <div className="card mx-1" style={{ width: "18rem" }}>
         <Link to="/builder">
-          <Plus
+          <BsPlus
             className="card-img-top"
             style={{ height: "18rem", color: "black" }}
           />
