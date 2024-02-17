@@ -1,6 +1,6 @@
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { FaHome } from "react-icons/fa";
+import { House } from "react-bootstrap-icons";
 import Navbar from "react-bootstrap/Navbar";
 import Modal from "react-bootstrap/Modal";
 import Resume from "./components/resume/Resume";
@@ -59,7 +59,7 @@ const Dashboard = () => {
       >
         <Navbar.Brand>
           <Link to="/" className="btn btn-primary mx-3">
-            <FaHome />
+            <House />
           </Link>
           Resumes
         </Navbar.Brand>
