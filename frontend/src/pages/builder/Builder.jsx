@@ -17,7 +17,6 @@ const Builder = () => {
       >
         <Navbar.Collapse className="justify-content-center">
           <Link to="/dashboard" className="btn btn-primary mx-2">
-            {/* <House /> */}
             <FaHome />
           </Link>
           <Button className="btn btn-primary">Download Pdf</Button>

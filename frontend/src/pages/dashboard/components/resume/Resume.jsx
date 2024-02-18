@@ -1,4 +1,3 @@
-// import { Plus } from "react-bootstrap-icons";
 import {BsPlus} from "react-icons/bs"
 import { Link } from "react-router-dom";
 
