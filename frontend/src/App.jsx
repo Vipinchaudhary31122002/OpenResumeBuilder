@@ -17,27 +17,25 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="container-fluid">
-      <Routes>
-        {/* homepage route */}
-        <Route exact path="/" element={<HomePage />}>
-          <Route path="signin" element={<SignIn />} />
-          <Route path="signup" element={<SignUp />} />
-          <Route path="forgotpassword" element={<ForgotPassword />} />
+    <Routes>
+      {/* homepage route */}
+      <Route exact path="/" element={<HomePage />}>
+        <Route path="signin" element={<SignIn />} />
+        <Route path="signup" element={<SignUp />} />
+        <Route path="forgotpassword" element={<ForgotPassword />} />
+      </Route>
+      {/* dashboard route */}
+      <Route exact path="/dashboard" element={<Dashboard />}>
+        <Route path="settings">
+          <Route path="account" element={<AccountSettings />} />
+          <Route path="passwordchange" element={<PasswordChangeSettings />} />
+          <Route path="deleteaccount" element={<DeleteAccountSettings />} />
         </Route>
-        {/* dashboard route */}
-        <Route exact path="/dashboard" element={<Dashboard />}>
-          <Route path="settings">
-            <Route path="account" element={<AccountSettings />} />
-            <Route path="passwordchange" element={<PasswordChangeSettings />} />
-            <Route path="deleteaccount" element={<DeleteAccountSettings />} />
-          </Route>
-        </Route>
-        {/* builder route */}
-        <Route exact path="/builder" element={<Builder />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
-    </div>
+      </Route>
+      {/* builder route */}
+      <Route exact path="/builder" element={<Builder />} />
+      <Route path="*" element={<ErrorPage />} />
+    </Routes>
   );
 }
 
