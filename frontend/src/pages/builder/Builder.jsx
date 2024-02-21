@@ -1,10 +1,14 @@
+import { Suspense, lazy } from "react";
 import { Link } from "react-router-dom";
-import "./Builder.css";
 import { FaHome } from "react-icons/fa";
 import Button from "react-bootstrap/Button";
-import ResumeForm from "./components/ResumeForm/ResumeForm";
-import PdfCanvas from "./components/PdfCanvas/PdfCanvas";
 
+// Lazy-loaded components
+const ResumeForm = lazy(() => import("./components/ResumeForm/ResumeForm"));
+const PdfCanvas = lazy(() => import("./components/PdfCanvas/PdfCanvas"));
+import LoadingIndicator from "../../utils/LoadingIndicator";
+
+import "./Builder.css";
 const Builder = () => {
   return (
     <>
@@ -18,8 +22,10 @@ const Builder = () => {
           </div>
           <ResumeForm />
         </div>
-        <div className="PdfCanvas" style={{ backgroundColor: "pink" }}>
-          <PdfCanvas />
+        <div className="PdfCanvas">
+          <Suspense fallback={<LoadingIndicator />}>
+            <PdfCanvas />
+          </Suspense>
         </div>
       </div>
     </>

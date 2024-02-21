@@ -7,7 +7,6 @@ import {
   PDFViewer,
 } from "@react-pdf/renderer";
 
-import "./PDFCanvas.css";
 const styles = StyleSheet.create({
   page: {
     flexDirection: "row",
@@ -23,14 +22,11 @@ const styles = StyleSheet.create({
 const PdfCanvas = () => {
   return (
     <>
-      <PDFViewer width={'100%'} height={'100%'}>
+      <PDFViewer width={"100%"} height={"100%"}>
         <Document>
           <Page size="A4" style={styles.page}>
             <View style={styles.section}>
-              <Text>Section #1</Text>
-            </View>
-            <View style={styles.section}>
-              <Text>Section #2</Text>
+              <Text>Testing</Text>
             </View>
           </Page>
         </Document>
