@@ -1,36 +1,46 @@
-import {
-  Page,
-  Text,
-  View,
-  Document,
-  StyleSheet,
-  PDFViewer,
-} from "@react-pdf/renderer";
-
-const styles = StyleSheet.create({
-  page: {
-    flexDirection: "row",
-    backgroundColor: "#E4E4E4",
-  },
-  section: {
-    margin: 10,
-    padding: 10,
-    flexGrow: 1,
-  },
-});
+import { useEffect, useState } from "react";
+import { PDFDocument, StandardFonts, rgb } from "pdf-lib";
 
 const PdfCanvas = () => {
+  const [pdfUrl, setPdfUrl] = useState("");
+
+  useEffect(() => {
+    const createPdf = async () => {
+      const pdfDoc = await PDFDocument.create();
+      const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
+
+      const page = pdfDoc.addPage();
+      const { height } = page.getSize();
+      const fontSize = 30;
+      page.drawText("Creating PDFs in JavaScript is awesome!", {
+        x: 50,
+        y: height - 4 * fontSize,
+        size: fontSize,
+        font: timesRomanFont,
+        color: rgb(0, 0.53, 0.71),
+      });
+
+      const pdfBytes = await pdfDoc.save();
+      const pdfUrl = URL.createObjectURL(
+        new Blob([pdfBytes], { type: "application/pdf" })
+      );
+      setPdfUrl(pdfUrl);
+    };
+
+    createPdf();
+  }, []);
+
   return (
     <>
-      <PDFViewer width={"100%"} height={"100%"}>
-        <Document>
-          <Page size="A4" style={styles.page}>
-            <View style={styles.section}>
-              <Text>Testing</Text>
-            </View>
-          </Page>
-        </Document>
-      </PDFViewer>
+      {pdfUrl && (
+        <iframe
+          title="PDF Viewer"
+          src={pdfUrl}
+          width="100%"
+          height="100%"
+          style={{ border: "none" }}
+        />
+      )}
     </>
   );
 };

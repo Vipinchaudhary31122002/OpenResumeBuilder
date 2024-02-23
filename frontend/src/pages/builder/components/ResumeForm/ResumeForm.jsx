@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Modal from "react-bootstrap/Modal";
+import Offcanvas from "react-bootstrap/Offcanvas";
 import PersonalDetailsForm from "./components/PersonalDetailsForm";
 import ProjectsForm from "./components/ProjectsForm";
 import WorkExperienceForm from "./components/ WorkExperienceForm";
@@ -14,8 +14,8 @@ import Button from "react-bootstrap/Button";
 
 const ResumeForm = () => {
   const [show, setShow] = useState(false);
-  const [modalTitle, setModalTitle] = useState("");
-  const [modalContent, setModalContent] = useState("");
+  const [offcanvasTitle, setModalTitle] = useState("");
+  const [offcanvasContent, setModalContent] = useState("");
   const handleClose = () => {
     setShow(false);
   };
@@ -79,13 +79,13 @@ const ResumeForm = () => {
   ];
   return (
     <>
-      {/* modalbox */}
-      <Modal show={show} onHide={handleClose} size="lg" centered>
-        <Modal.Header closeButton>
-          <Modal.Title>{modalTitle}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>{modalContent}</Modal.Body>
-      </Modal>
+      {/* offcanvas */}
+      <Offcanvas show={show} onHide={handleClose} backdrop={false}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>{offcanvasTitle}</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>{offcanvasContent}</Offcanvas.Body>
+      </Offcanvas>
       {/* iterating over every object in ResumeFromTitleAndComponent for render the buttons */}
       <div className="ButtonContainer container-fluid d-flex flex-column gap-2">
         {ResumeFormTitleAndComponents.map((element) => (
