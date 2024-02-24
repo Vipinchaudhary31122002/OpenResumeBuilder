@@ -5,6 +5,12 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   base: "/",
   plugins: [react()],
+  // for implementing absolute for importing file
+  resolve: {
+    alias: {
+      src: "/src"
+    }
+  }
   // proxy:{
   //   '/api': {
   //     target: 'http://jsonplaceholder.typicode.com',

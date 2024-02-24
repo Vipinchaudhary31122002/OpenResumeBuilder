@@ -1,7 +1,6 @@
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FaHome } from "react-icons/fa";
-
 import Navbar from "react-bootstrap/Navbar";
 import Modal from "react-bootstrap/Modal";
 import Resume from "./components/resume/Resume";

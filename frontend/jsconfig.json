@@ -1,0 +1,9 @@
+// absolute urls implementation for importing files
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "src/*": ["./src/*"]
+        }
+    },
+}
