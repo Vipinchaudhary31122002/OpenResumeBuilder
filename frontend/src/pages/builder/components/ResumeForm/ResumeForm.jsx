@@ -80,9 +80,9 @@ const ResumeForm = () => {
   return (
     <>
       {/* offcanvas */}
-      <Offcanvas show={show} onHide={handleClose} backdrop={false}>
+      <Offcanvas show={show} onHide={handleClose} backdrop={false} data-bs-theme="dark">
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>{offcanvasTitle}</Offcanvas.Title>
+          <Offcanvas.Title className="text-light">{offcanvasTitle}</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>{offcanvasContent}</Offcanvas.Body>
       </Offcanvas>

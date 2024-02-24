@@ -15,10 +15,10 @@ const Builder = () => {
       <div className="BuilderPage container-fluid">
         <div className="ResumeForm">
           <div className="d-flex justify-content-between m-1">
-            <Link to="/dashboard" className="btn btn-primary">
+            <Link to="/dashboard" className="btn btn-outline-primary">
               <FaHome />
             </Link>
-            <Button className="btn btn-primary">Download Pdf</Button>
+            <Button variant="outline-primary">Download Pdf</Button>
           </div>
           <ResumeForm />
         </div>

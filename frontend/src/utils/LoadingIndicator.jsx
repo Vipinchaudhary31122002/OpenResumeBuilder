@@ -2,12 +2,11 @@ import Spinner from "react-bootstrap/Spinner";
 const LoadingIndicator = () => {
   return (
     <div
-      className="Container d-flex justify-content-center align-items-center"
+      className="Container d-flex justify-content-center align-items-center bg-black"
       style={{ height: "100vh" }}
     >
-      <Spinner animation="border" role="status">
-      </Spinner>
-      <h1>Loading...</h1>
+      <Spinner animation="border" variant="light"></Spinner>
+      <h1 style={{ color: "white" }}>Loading...</h1>
     </div>
   );
 };
