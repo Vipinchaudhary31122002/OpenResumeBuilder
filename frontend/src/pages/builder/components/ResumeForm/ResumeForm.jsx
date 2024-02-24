@@ -94,6 +94,7 @@ const ResumeForm = () => {
               handleShow(element.title, element.content);
             }}
             key={element.id}
+            variant="outline-primary"
           >
             {element.title}
           </Button>

@@ -25,7 +25,7 @@ const SignUp = () => {
             placeholder="Enter your password"
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-outline-primary">
           Submit
         </button>
       </form>

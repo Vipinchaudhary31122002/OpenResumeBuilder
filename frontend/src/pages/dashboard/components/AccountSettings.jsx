@@ -1,7 +1,6 @@
 const AccountSettings = () => {
   return (
     <>
-      <h2>Account</h2>
       <form id="AccountForm">
         <div className="mb-3">
           <input

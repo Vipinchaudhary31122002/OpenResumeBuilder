@@ -1,7 +1,6 @@
 const PasswordChangeSettings = () => {
   return (
     <>
-      <h2>Security</h2>
       <form className="SecurityForm">
         <div className="mb-3">
           <input

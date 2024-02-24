@@ -10,7 +10,7 @@ const ForgotPassword = () => {
             placeholder="Enter your email"
           />
         </div>
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-outline-primary">
           Send Email
         </button>
       </form>
