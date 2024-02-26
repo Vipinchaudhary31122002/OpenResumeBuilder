@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "OpenResumeBuilder is resume building website using MERN stack.",
   "scripts": {
-    "installPackages": "npm run installbackend && npm run installfrontend",
-    "installbackend": " cd bakend && npm install",
-    "installfrontend": " cd bakend && npm install",
+    "installpackages": "npm run installbackend && npm run installfrontend",
+    "installbackend": " cd backend && npm install",
+    "installfrontend": " cd frontend && npm install",
     "buildfrontend": "cd frontend && npm run build",
     "startserver": "cd backend && npm run start"
   },
