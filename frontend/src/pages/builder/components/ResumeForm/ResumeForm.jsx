@@ -14,15 +14,15 @@ import Button from "react-bootstrap/Button";
 
 const ResumeForm = () => {
   const [show, setShow] = useState(false);
-  const [offcanvasTitle, setModalTitle] = useState("");
-  const [offcanvasContent, setModalContent] = useState("");
+  const [offcanvasTitle, setCanvasTitle] = useState("");
+  const [offcanvasContent, setCanvasContent] = useState("");
   const handleClose = () => {
     setShow(false);
   };
   const handleShow = (title, content) => {
     setShow(true);
-    setModalTitle(title);
-    setModalContent(content);
+    setCanvasTitle(title);
+    setCanvasContent(content);
   };
 
   const ResumeFormTitleAndComponents = [
@@ -80,9 +80,16 @@ const ResumeForm = () => {
   return (
     <>
       {/* offcanvas */}
-      <Offcanvas show={show} onHide={handleClose} backdrop={false} data-bs-theme="dark">
+      <Offcanvas
+        show={show}
+        onHide={handleClose}
+        backdrop={false}
+        data-bs-theme="dark"
+      >
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title className="text-light">{offcanvasTitle}</Offcanvas.Title>
+          <Offcanvas.Title className="text-light">
+            {offcanvasTitle}
+          </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>{offcanvasContent}</Offcanvas.Body>
       </Offcanvas>

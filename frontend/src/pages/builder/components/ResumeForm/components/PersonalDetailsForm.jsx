@@ -1,26 +1,25 @@
+import Form from "react-bootstrap/Form";
+
 const PersonalDetailsForm = () => {
   return (
     <>
-      <form>
-        <div className="mb-3">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Enter your name"
-          />
-        </div>
-        <div className="mb-3">
-          <input
-            type="email"
-            className="form-control"
-            id="exampleInputEmail1"
-            placeholder="Enter your email"
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
-      </form>
+      <Form.Control type="file" className="my-3" />
+      <Form.Control type="text" placeholder="Enter your fullname" />
+      <Form.Control
+        type="email"
+        placeholder="Enter your email address"
+        className="my-3"
+      />
+      <Form.Control
+        type="digit"
+        placeholder="Enter your phone number"
+        className="my-3"
+      />
+      <Form.Control
+        type="text"
+        placeholder="Enter your location"
+        className="my-3"
+      />
     </>
   );
 };

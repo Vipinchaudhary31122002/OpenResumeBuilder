@@ -4,8 +4,9 @@ import { FaHome } from "react-icons/fa";
 import Button from "react-bootstrap/Button";
 
 // Lazy-loaded components
-const ResumeForm = lazy(() => import("./components/ResumeForm/ResumeForm"));
-const PdfCanvas = lazy(() => import("./components/PdfCanvas/PdfCanvas"));
+import ResumeForm from "./components/ResumeForm/ResumeForm";
+// const ResumeForm = lazy(() => import("./components/ResumeForm/ResumeForm"));
+// const PdfCanvas = lazy(() => import("./components/PdfCanvas/PdfCanvas"));
 import LoadingIndicator from "src/utils/LoadingIndicator";
 
 import "./Builder.css";
@@ -24,7 +25,7 @@ const Builder = () => {
         </div>
         <div className="PdfCanvas">
           <Suspense fallback={<LoadingIndicator />}>
-            <PdfCanvas />
+            {/* <PdfCanvas /> */}
           </Suspense>
         </div>
       </div>

@@ -1,11 +1,11 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
+import Modal from "react-bootstrap/Modal";
 import "./HomePage.css";
 
 const HomePage = () => {
   const [show, setShow] = useState(false);
-  const [modalTitle, setModalTitle] = useState("Sign In");
+  const [modalTitle, setModalTitle] = useState("Sign up");
   const navigate = useNavigate();
   const handleClose = () => {
     setShow(false);
@@ -17,9 +17,10 @@ const HomePage = () => {
   };
   return (
     <>
-      <Modal show={show} onHide={handleClose} size="lg" centered data-bs-theme="dark">
+      {/* modal box */}
+      <Modal show={show} onHide={handleClose} data-bs-theme="dark" centered>
         <Modal.Header closeButton>
-          <Modal.Title style={{color: "white"}}>{modalTitle}</Modal.Title>
+          <Modal.Title style={{ color: "white" }}>{modalTitle}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Outlet />
