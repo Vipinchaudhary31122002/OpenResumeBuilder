@@ -1,12 +1,14 @@
-const connect = require("mongoose");
-require("dotenv").config();
+import mongoose from "mongoose";
+import { MONGODB_URL } from "../constants.js";
 
-connect(
-  `mongodb+srv://devadmin:${process.env.DATABASE_PASSWORD}@atlascluster.0lbm7hz.mongodb.net/?retryWrites=true&w=majority&appName=AtlasCluster`
-)
-  .then(() => {
+const connectDB = async () => {
+  try {
+    await mongoose.connect(MONGODB_URL);
     console.log("Connected to MongoDB");
-  })
-  .catch((error) => {
+  } catch (error) {
     console.error("MongoDB connection error:", error);
-  });
+    throw error;
+  }
+};
+
+export default connectDB
