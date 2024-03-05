@@ -1,8 +1,7 @@
-const User = require("../models/UserModel");
-const { createSecretToken } = require("../utils/SecretToken");
-const bcrypt = require("bcrypt");
+import { createSecretToken } from "../utils/SecretToken.js";
+import {User} from "../models/UserModel.js";
 
-module.exports.Signup = async (req, res, next) => {
+export const Signup = async (req, res, next) => {
   try {
     const { email, password, username, createdAt } = req.body;
     const existingUser = await User.findOne({ email });
