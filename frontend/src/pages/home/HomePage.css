@@ -1,42 +1,46 @@
 .HomePage {
-  height: 100vh;
-  min-width: fit-content;
+  min-height: 100vh;
+  width: 100%;
   display: flex;
-  justify-self: center;
+  justify-content: center;
   align-items: center;
-  color: white;
-  background-color: black;
   > span {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-      sans-serif;
     font-weight: bolder;
-    font-size: 8rem;
   }
 }
 
-@media (width<=320px) {
+@media (width <= 320px) {
   .HomePage > span {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 }
-/* @media screen and (min-width:375px) {
-    .HomePageText > span {
-        font-size: 6rem;
-    }
+
+@media (321px <= width <= 375px) {
+  .HomePage > span {
+    font-size: 2.3rem;
+  }
 }
-@media screen and (min-width:425px) {
-    .HomePageText > span {
-        font-size: 7rem;
-    }
+
+@media (376px <= width <= 425px) {
+  .HomePage > span {
+    font-size: 2.5rem;
+  }
 }
-@media screen and (min-width:768px) {
-    .HomePageText > span {
-        font-size: 10rem;
-    }
-} */
-/* @media screen and (min-width:1024px) {
-    .HomePageText > span {
-        font-size: 11rem;
-    }
-} */
+
+@media (426px <= width <= 768px) {
+  .HomePage > span {
+    font-size: 4.8rem;
+  }
+}
+
+@media (769px <= width <= 1024px) {
+  .HomePage > span {
+    font-size: 6.3rem;
+  }
+}
+
+@media (1025px <= width <= 1440px) {
+  .HomePage > span {
+    font-size: 8rem;
+  }
+}

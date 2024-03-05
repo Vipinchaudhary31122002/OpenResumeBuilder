@@ -4,10 +4,10 @@ import { Suspense, lazy } from "react";
 // Lazy-loaded components
 const HomePage = lazy(() => import("./pages/home/HomePage"));
 const Dashboard = lazy(() => import("./pages/dashboard/Dashboard"));
+const Builder = lazy(() => import("./pages/builder/Builder"));
 import SignIn from "./pages/home/components/SignIn";
 import SignUp from "./pages/home/components/SignUp";
 import ForgotPassword from "./pages/home/components/ForgotPassword";
-const Builder = lazy(() => import("./pages/builder/Builder"));
 import ErrorPage from "./pages/error/ErrorPage";
 import LoadingIndicator from "./utils/LoadingIndicator";
 

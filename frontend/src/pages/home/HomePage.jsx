@@ -50,7 +50,7 @@ const HomePage = () => {
         </Modal.Footer>
       </Modal>
       <div className="HomePage container-fluid d-flex flex-column justify-content-center align-items-center">
-        <span className="display-1">OpenResumeBuilder</span>
+        <span>OpenResumeBuilder</span>
         <div className="d-flex justify-content-center">
           <Link
             to="/signin"
