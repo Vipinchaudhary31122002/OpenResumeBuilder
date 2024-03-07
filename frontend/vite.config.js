@@ -8,14 +8,13 @@ export default defineConfig({
   // for implementing absolute for importing file
   resolve: {
     alias: {
-      src: "/src"
-    }
-  }
-  // proxy:{
-  //   '/api': {
-  //     target: 'http://jsonplaceholder.typicode.com',
-  //     changeOrigin: true,
-  //     rewrite: (path) => path.replace(/^\/api/, ''),
-  //   },
-  // }
+      src: "/src",
+    },
+  },
+  // Set up proxy for every request that start with /api to forward it to server url.
+  server: {
+    proxy: {
+      "/api": "http://localhost:4000",
+    },
+  },
 });

@@ -19,11 +19,10 @@ const SignIn = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/api/v1/auth/login",
+        "/api/v1/auth/login",
         {
           ...inputValue,
-        },
-        { withCredentials: true }
+        }
       );
       navigate("/");
       console.log(data);
