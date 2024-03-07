@@ -1,7 +1,10 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useCookies } from "react-cookie";
+import { ToastContainer, toast } from "react-toastify";
 import Modal from "react-bootstrap/Modal";
 import "./HomePage.css";
+import axios from "axios";
 
 const HomePage = () => {
   const [show, setShow] = useState(false);
@@ -15,6 +18,30 @@ const HomePage = () => {
     setShow(true);
     setModalTitle(title);
   };
+  // const [cookies, removeCookie] = useCookies([]);
+  // useEffect(() => {
+  //   const verifyCookie = async () => {
+  //     if (!cookies.token) {
+  //       navigate("/login");
+  //     }
+  //     const { data } = await axios.post(
+  //       "http://localhost:4000",
+  //       {},
+  //       { withCredentials: true }
+  //     );
+  //     const { status, user } = data;
+  //     return status
+  //       ? toast(`Hello ${user}`, {
+  //           position: "top-right",
+  //         })
+  //       : (removeCookie("token"), navigate("/login"));
+  //   };
+  //   verifyCookie();
+  // }, [cookies, navigate, removeCookie]);
+  // const Logout = () => {
+  //   removeCookie("token");
+  //   navigate("/");
+  // };
   return (
     <>
       {/* modal box */}
@@ -67,11 +94,17 @@ const HomePage = () => {
           >
             Go To Dashboard
           </Link>
-          <Link to="/" type="button" className="btn btn-outline-primary m-1">
+          {/* <Link
+            to="/"
+            type="button"
+            className="btn btn-outline-primary m-1"
+            onClick={Logout}
+          >
             LogOut
-          </Link>
+          </Link> */}
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };
