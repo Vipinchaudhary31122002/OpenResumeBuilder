@@ -26,8 +26,7 @@ function App() {
         </Route>
         {/* dashboard route */}
         <Route exact path="/dashboard" element={<Dashboard />}>
-          <Route path="settings">
-          </Route>
+          <Route path="settings"></Route>
         </Route>
         {/* builder route */}
         <Route exact path="/builder" element={<Builder />} />
