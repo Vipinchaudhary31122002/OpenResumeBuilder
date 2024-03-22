@@ -6,13 +6,13 @@ const NotificationIndicator = () => {
     <>
       <ToastContainer
         position="top-right"
-        autoClose={1200}
+        autoClose={2000}
         closeOnClick
         rtl={false}
         pauseOnFocusLoss
         draggable
         pauseOnHover={false}
-        theme="light"
+        theme="dark"
         transition:Bounce
       />
     </>

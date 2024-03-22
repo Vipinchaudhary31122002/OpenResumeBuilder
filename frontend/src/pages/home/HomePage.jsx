@@ -1,11 +1,11 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+// import { useEffect } from "react";
 // import { useCookies } from "react-cookie";
 import { toast } from "react-toastify";
 import Modal from "react-bootstrap/Modal";
 import "./HomePage.css";
 // import axios from "axios";
-import NotificationIndicator from ".src/utils/NotificationIndicator";
 const HomePage = () => {
   const [show, setShow] = useState(false);
   const [modalTitle, setModalTitle] = useState("Sign up");
@@ -18,7 +18,6 @@ const HomePage = () => {
     setShow(true);
     setModalTitle(title);
   };
-  const notify = () => toast("Wow so easy!");
   // const [cookies, removeCookie] = useCookies([]);
   // useEffect(() => {
   //   const verifyCookie = async () => {
@@ -45,7 +44,6 @@ const HomePage = () => {
   // };
   return (
     <>
-      <NotificationIndicator />
       {/* modal box */}
       <Modal show={show} onHide={handleClose} data-bs-theme="dark" centered>
         <Modal.Header closeButton>
@@ -93,13 +91,14 @@ const HomePage = () => {
             to="dashboard"
             type="button"
             className="btn btn-outline-primary m-1"
+            // onClick={() => toast("Welcome to Dashboard!")}
           >
             Go To Dashboard
           </Link>
           <button
             className="btn btn-outline-primary m-1"
             type="button"
-            onClick={notify}
+            onClick={() => toast("Testing Notification Indicator!")}
           >
             Testing Notification
           </button>

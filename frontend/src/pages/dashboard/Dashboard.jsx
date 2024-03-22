@@ -59,6 +59,7 @@ const Dashboard = () => {
             </Link>
             Resumes
           </Navbar.Brand>
+          
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end mx-3">
             <Link

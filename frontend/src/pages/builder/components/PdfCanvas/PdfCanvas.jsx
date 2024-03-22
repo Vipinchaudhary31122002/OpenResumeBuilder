@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { PDFDocument} from "pdf-lib";
-import {  StandardFonts } from "pdf-lib";
+import { PDFDocument } from "pdf-lib";
+import { StandardFonts } from "pdf-lib";
 import { rgb } from "pdf-lib";
 
 const PdfCanvas = () => {
@@ -16,7 +16,7 @@ const PdfCanvas = () => {
       const fontSize = 30;
       page.drawText("Resume template", {
         x: 50,
-        y: height - 4 * fontSize,
+        y: height - 2* fontSize,
         size: fontSize,
         font: timesRomanFont,
         color: rgb(0, 0.53, 0.71),

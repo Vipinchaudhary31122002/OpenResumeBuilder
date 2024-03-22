@@ -10,12 +10,16 @@ import SignUp from "./pages/home/components/SignUp";
 import ForgotPassword from "./pages/home/components/ForgotPassword";
 import ErrorPage from "./pages/error/ErrorPage";
 import LoadingIndicator from "./utils/LoadingIndicator";
+import NotificationIndicator from "src/utils/NotificationIndicator";
+
 
 // importing stylesheet
 import "./App.css";
 
 function App() {
   return (
+    <>
+    <NotificationIndicator/>
     <Suspense fallback={<LoadingIndicator />}>
       <Routes>
         {/* homepage route */}
@@ -33,6 +37,7 @@ function App() {
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </Suspense>
+    </>
   );
 }
 
