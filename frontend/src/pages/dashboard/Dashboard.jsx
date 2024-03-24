@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, Outlet } from "react-router-dom";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useState } from "react";
 import { FaHome } from "react-icons/fa";
@@ -59,9 +59,16 @@ const Dashboard = () => {
             </Link>
             Resumes
           </Navbar.Brand>
-          
           <Navbar.Toggle />
-          <Navbar.Collapse className="justify-content-end mx-3">
+          <Navbar.Collapse className="justify-content-end mx-3 gap-3">
+            <Link
+              to="/dashboard/appliedjobs"
+              type="button"
+              onClick={() => handleShow("Settings")}
+              className="btn btn-outline-primary "
+            >
+              Applied Jobs
+            </Link>
             <Link
               to="/dashboard/settings"
               type="button"
@@ -73,6 +80,7 @@ const Dashboard = () => {
           </Navbar.Collapse>
         </Navbar>
         <Resume />
+        {/* <Outlet/> */}
       </div>
     </>
   );
