@@ -17,4 +17,8 @@ export default defineConfig({
       "/api": "http://localhost:4000",
     },
   },
+  // chunking file size
+  build: {
+    chunkSizeWarningLimit: 2048,
+  },
 });
