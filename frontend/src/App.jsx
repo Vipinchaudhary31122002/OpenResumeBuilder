@@ -5,12 +5,13 @@ import { Suspense, lazy } from "react";
 const HomePage = lazy(() => import("./pages/home/HomePage"));
 const Dashboard = lazy(() => import("./pages/dashboard/Dashboard"));
 const Builder = lazy(() => import("./pages/builder/Builder"));
-// const Resume = lazy(() =>
-//   import("./pages/dashboard/components/resume/Resume.jsx")
-// );
-// const AppliedJobs = lazy(() =>
-//   import("./pages/dashboard/components/appliedjobs/AppliedJobs.jsx")
-// );
+const Resume = lazy(() =>
+  import("./pages/dashboard/components/resume/Resume.jsx")
+);
+const AppliedJobs = lazy(() =>
+  import("./pages/dashboard/components/appliedjobs/AppliedJobs.jsx")
+);
+import Settings from "./pages/dashboard/components/Settings/Settings";
 import {
   SignUp,
   SignIn,
@@ -36,13 +37,10 @@ function App() {
             <Route path="forgotpassword" element={<ForgotPassword />} />
           </Route>
           {/* dashboard route */}
-          {/* <Route exact path="/dashboard" element={<Dashboard />}>
-            <Route index element={<Resume />} />
-            <Route path="appliedjobs" element={<AppliedJobs />} />
-            <Route path="settings" />
-          </Route> */}
           <Route exact path="/dashboard" element={<Dashboard />}>
-            <Route path="settings" />
+            <Route path="resumes" element={<Resume />} />
+            <Route path="appliedjobs" element={<AppliedJobs />} />
+            <Route path="settings" element={<Settings />} />
           </Route>
           {/* builder route */}
           <Route exact path="/builder" element={<Builder />} />

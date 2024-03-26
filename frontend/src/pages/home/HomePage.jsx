@@ -88,10 +88,9 @@ const HomePage = () => {
             Get Started
           </Link>
           <Link
-            to="dashboard"
+            to="dashboard/resumes"
             type="button"
             className="btn btn-outline-primary m-1"
-            // onClick={() => toast("Welcome to Dashboard!")}
           >
             Go To Dashboard
           </Link>

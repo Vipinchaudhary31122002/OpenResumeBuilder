@@ -1,5 +1,6 @@
 import Button from "react-bootstrap/Button";
 
+// Account settings component
 const AccountSettings = () => {
   return (
     <>
@@ -30,6 +31,7 @@ const AccountSettings = () => {
   );
 };
 
+// Delete account component
 const DeleteAccountSettings = () => {
   return (
     <>
@@ -40,6 +42,7 @@ const DeleteAccountSettings = () => {
   );
 };
 
+// password Change component
 const PasswordChangeSettings = () => {
   return (
     <>
@@ -63,4 +66,22 @@ const PasswordChangeSettings = () => {
   );
 };
 
-export { PasswordChangeSettings, AccountSettings, DeleteAccountSettings };
+// Settings components
+const Settings = () => {
+  return (
+    <>
+      <div className="container">
+        <h1>Account </h1>
+        <AccountSettings />
+        <hr />
+        <h1>Password</h1>
+        <PasswordChangeSettings />
+        <hr />
+        <h1>Delete account</h1>
+        <DeleteAccountSettings />
+      </div>
+    </>
+  );
+};
+
+export default Settings;
