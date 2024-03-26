@@ -40,4 +40,63 @@ const PersonalDetailsForm = () => {
   );
 };
 
-export default PersonalDetailsForm;
+const WorkExperienceForm = () => {
+  return <div> WorkExperienceForm</div>;
+};
+
+const SummaryForm = () => {
+  return (
+    <>
+      <Form.Control
+        as="textarea"
+        placeholder="Enter a summary about yourself"
+        style={{ height: "200px" }}
+      />
+    </>
+  );
+};
+
+const SpokenLanguagesForm = () => {
+  return <div>SpokenLanguagesForm</div>;
+};
+
+const SkillsForm = () => {
+  return <div>SkillsForm</div>;
+};
+
+const ProjectsForm = () => {
+  return (
+    <>
+      <h1>This is ProjectsFrom</h1>
+    </>
+  );
+};
+
+const LinksForm = () => {
+  return <div>LinksForm</div>;
+};
+
+const EducationForm = () => {
+  return <div>EducationForm</div>;
+};
+
+const CustomSectionsForm = () => {
+  return <div>CustomSectionsForm</div>;
+};
+
+const CertificatesForm = () => {
+  return <div>CertificatesForm</div>;
+};
+
+export {
+  PersonalDetailsForm,
+  CertificatesForm,
+  CustomSectionsForm,
+  SkillsForm,
+  SpokenLanguagesForm,
+  ProjectsForm,
+  LinksForm,
+  WorkExperienceForm,
+  SummaryForm,
+  EducationForm,
+};
