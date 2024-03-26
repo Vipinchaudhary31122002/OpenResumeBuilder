@@ -5,9 +5,11 @@ import { FaHome } from "react-icons/fa";
 import Navbar from "react-bootstrap/Navbar";
 import Resume from "./components/resume/Resume";
 import "./Dashboard.css";
-import AccountSettings from "./components/AccountSettings";
-import PasswordChangeSettings from "./components/PasswordChangeSettings";
-import DeleteAccountSettings from "./components/DeleteAccountSettings";
+import {
+  AccountSettings,
+  PasswordChangeSettings,
+  DeleteAccountSettings,
+} from "./components/Settings/Settings";
 
 const Dashboard = () => {
   const [show, setShow] = useState(false);

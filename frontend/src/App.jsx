@@ -11,9 +11,11 @@ const Builder = lazy(() => import("./pages/builder/Builder"));
 // const AppliedJobs = lazy(() =>
 //   import("./pages/dashboard/components/appliedjobs/AppliedJobs.jsx")
 // );
-import SignIn from "./pages/home/components/SignIn";
-import SignUp from "./pages/home/components/SignUp";
-import ForgotPassword from "./pages/home/components/ForgotPassword";
+import {
+  SignUp,
+  SignIn,
+  ForgotPassword,
+} from "./pages/home/components/userforms/Userforms";
 import ErrorPage from "./pages/error/ErrorPage";
 import LoadingIndicator from "./utils/LoadingIndicator";
 import NotificationIndicator from "src/utils/NotificationIndicator";

@@ -10,6 +10,7 @@ import LoadingIndicator from "src/utils/LoadingIndicator";
 
 import "./Builder.css";
 const Builder = () => {
+
   return (
     <>
       <div className="BuilderPage container-fluid">

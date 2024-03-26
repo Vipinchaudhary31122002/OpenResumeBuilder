@@ -1,6 +1,8 @@
-// import {configureStore} from '@reduxjs/toolkit';
-// // import todoReducer from '../features/todo/todoSlice';
+import {configureStore} from '@reduxjs/toolkit';
+import ResumeReducer from './ResumeSlice';
 
-// export const store = configureStore({
-//     reducer: todoReducer
-// })
+export default configureStore({
+    reducer: {
+        resume: ResumeReducer
+    },
+})
