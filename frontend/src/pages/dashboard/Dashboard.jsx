@@ -27,13 +27,13 @@ const Dashboard = () => {
             >
               Resumes
             </Link>
-            <Link
+            {/* <Link
               to="/dashboard/appliedjobs"
               type="button"
               className="btn btn-outline-primary "
             >
               Applied Jobs
-            </Link>
+            </Link> */}
             <Link
               to="/dashboard/settings"
               type="button"

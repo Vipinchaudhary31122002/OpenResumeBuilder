@@ -1,19 +1,31 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
+
+// const resumes = [];
+const initialState = {
+  fullname: "",
+  email: "",
+  phonenumber: "",
+  address: "",
+};
 
 export const ResumeSlice = createSlice({
-  name: 'resume',
-  initialState: {
-    value: 0,
-  },
+  name: "resume",
+  initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1
+    SetFullname: (state, action) => {
+      state.fullname = action.payload;
     },
-    decrement: (state) => {
-      state.value -= 1
+    SetEmail: (state, action) => {
+      state.email = action.payload;
+    },
+    SetPhonenumber: (state, action) => {
+      state.phonenumber = action.payload;
+    },
+    SetAddress: (state, action) => {
+      state.address = action.payload;
     },
   },
-})
-export const { increment, decrement, incrementByAmount } = ResumeSlice.actions
+});
+export const { SetFullname, SetEmail, SetPhonenumber, SetAddress } = ResumeSlice.actions;
 
-export default ResumeSlice.reducer
+export default ResumeSlice.reducer;

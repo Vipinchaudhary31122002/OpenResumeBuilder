@@ -1,41 +1,52 @@
 import Form from "react-bootstrap/Form";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { decrement, increment } from "src/redux/ResumeSlice.js";
-
+import {
+  SetFullname,
+  SetAddress,
+  SetEmail,
+  SetPhonenumber,
+} from "src/redux/ResumeSlice";
 const PersonalDetailsForm = () => {
   const dispatch = useDispatch();
+  const { register, watch } = useForm();
+  const watchFullname = watch("fullname");
+  const watchEmail = watch("email");
+  const watchAddress = watch("address");
+  const watchPhonenumber = watch("phonenumber")
+  useEffect(() => {
+    dispatch(SetFullname(watchFullname));
+    dispatch(SetAddress(watchAddress));
+    dispatch(SetEmail(watchEmail));
+    dispatch(SetPhonenumber(watchPhonenumber));
+  }, [dispatch, watchFullname, watchAddress, watchEmail, watchPhonenumber]);
+
   return (
     <>
-      <Form.Control type="text" placeholder="Enter your fullname" />
+      <Form.Control
+        type="text"
+        placeholder="Enter your fullname"
+        {...register("fullname")}
+      />
       <Form.Control
         type="email"
         placeholder="Enter your email address"
         className="my-3"
+        {...register("email")}
       />
       <Form.Control
         type="digit"
         placeholder="Enter your phone number"
         className="my-3"
+        {...register("phonenumber")}
       />
       <Form.Control
         type="text"
-        placeholder="Enter your location"
+        placeholder="Enter your address"
         className="my-3"
+        {...register("address")}
       />
-      <button
-        className="btn btn-primary me-2"
-        aria-label="Increment value"
-        onClick={() => dispatch(increment())}
-      >
-        INCREMENT
-      </button>
-      <button
-        className="btn btn-primary"
-        aria-label="Increment value"
-        onClick={() => dispatch(decrement())}
-      >
-        DECREMENT
-      </button>
     </>
   );
 };

@@ -8,9 +8,9 @@ const Builder = lazy(() => import("./pages/builder/Builder"));
 const Resume = lazy(() =>
   import("./pages/dashboard/components/resume/Resume.jsx")
 );
-const AppliedJobs = lazy(() =>
-  import("./pages/dashboard/components/appliedjobs/AppliedJobs.jsx")
-);
+// const AppliedJobs = lazy(() =>
+//   import("./pages/dashboard/components/appliedjobs/AppliedJobs.jsx")
+// );
 import Settings from "./pages/dashboard/components/Settings/Settings";
 import {
   SignUp,
@@ -39,7 +39,7 @@ function App() {
           {/* dashboard route */}
           <Route exact path="/dashboard" element={<Dashboard />}>
             <Route path="resumes" element={<Resume />} />
-            <Route path="appliedjobs" element={<AppliedJobs />} />
+            {/* <Route path="appliedjobs" element={<AppliedJobs />} /> */}
             <Route path="settings" element={<Settings />} />
           </Route>
           {/* builder route */}
