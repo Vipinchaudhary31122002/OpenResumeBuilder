@@ -1,52 +1,53 @@
 import Form from "react-bootstrap/Form";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import {
-  SetFullname,
-  SetAddress,
-  SetEmail,
-  SetPhonenumber,
-} from "src/redux/ResumeSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { SetPersonalDetails } from "src/redux/ResumeSlice";
 const PersonalDetailsForm = () => {
   const dispatch = useDispatch();
   const { register, watch } = useForm();
-  const watchFullname = watch("fullname");
-  const watchEmail = watch("email");
-  const watchAddress = watch("address");
-  const watchPhonenumber = watch("phonenumber")
+  const watchedFields = watch("fullname");
+  const fullname = useSelector((state) => state.resume.initialresume.fullname);
+  // const { fullname } = data;
   useEffect(() => {
-    dispatch(SetFullname(watchFullname));
-    dispatch(SetAddress(watchAddress));
-    dispatch(SetEmail(watchEmail));
-    dispatch(SetPhonenumber(watchPhonenumber));
-  }, [dispatch, watchFullname, watchAddress, watchEmail, watchPhonenumber]);
+    dispatch(SetPersonalDetails({ fullname: watchedFields }));
+  }, [dispatch, watchedFields]);
 
   return (
     <>
       <Form.Control
         type="text"
         placeholder="Enter your fullname"
+        value={fullname}
         {...register("fullname")}
       />
-      <Form.Control
+      {/* <Form.Control
+        type="text"
+        placeholder="Enter headlin"
+        // value={headline}
+        {...register("headline")}
+      /> */}
+      {/* <Form.Control
         type="email"
         placeholder="Enter your email address"
+        // value={email}
         className="my-3"
         {...register("email")}
       />
       <Form.Control
         type="digit"
         placeholder="Enter your phone number"
+        // value={phonenumber}
         className="my-3"
         {...register("phonenumber")}
       />
       <Form.Control
         type="text"
+        // value={address}
         placeholder="Enter your address"
         className="my-3"
         {...register("address")}
-      />
+      /> */}
     </>
   );
 };

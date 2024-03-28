@@ -24,10 +24,10 @@ import { useSelector } from "react-redux";
 
 import "./Builder.css";
 const Builder = () => {
-  const fullname = useSelector((state) => state.resume.fullname);
-  const email = useSelector((state) => state.resume.email);
-  const phonenumber = useSelector((state) => state.resume.phonenumber);
-  const address = useSelector((state) => state.resume.address);
+  const fullname = useSelector((state) => state.resume.initialresume.fullname);
+  // const email = useSelector((state) => state.resume.email);
+  // const phonenumber = useSelector((state) => state.resume.phonenumber);
+  // const address = useSelector((state) => state.resume.address);
   const [show, setShow] = useState(false);
   const [offcanvasTitle, setCanvasTitle] = useState("");
   const [offcanvasContent, setCanvasContent] = useState("");
@@ -135,12 +135,12 @@ const Builder = () => {
             <PdfCanvas />
           </Suspense> */}
           {fullname}
-          <br/>
+          {/* <br />
           {email}
-          <br/>
+          <br />
           {phonenumber}
-          <br/>
-          {address}
+          <br />
+          {address} */}
         </div>
       </div>
     </>

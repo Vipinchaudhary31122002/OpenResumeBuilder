@@ -1,31 +1,93 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// const resumes = [];
 const initialState = {
-  fullname: "",
-  email: "",
-  phonenumber: "",
-  address: "",
+  initialresume: {
+    fullname: "",
+    headline: "",
+    email: "",
+    phonenumber: "",
+    address: "",
+    website: "",
+    summary: "",
+    links: [{ network: "", username: "", website: "" }],
+    experience: [
+      {
+        campanyname: "",
+        position: "",
+        duration: "",
+        address: "",
+        website: "",
+        summary: "",
+      },
+    ],
+    education: [
+      {
+        universityname: "",
+        degree: "",
+        score: "",
+        duration: "",
+        website: "",
+        summary: "",
+      },
+    ],
+    skills: [],
+    languages: [],
+    awards: [{ title: "", date: "", summary: "", organization: "" }],
+    certifications: [
+      {
+        name: "",
+        description: "",
+        duration: "",
+        website: "",
+        summary: "",
+        keywords: [],
+      },
+    ],
+    intersets: [],
+    projects: [
+      {
+        name: "",
+        description: "",
+        duration: "",
+        website: "",
+        summary: "",
+        keywords: [],
+      },
+    ],
+    publication: [
+      { name: "", publisher: "", data: "", website: "", summary: "" },
+    ],
+    volunteering: [
+      {
+        organization: "",
+        position: "",
+        duration: "",
+        location: "",
+        website: "",
+        summary: "",
+      },
+    ],
+    references: [{ name: "", description: "", website: "", summary: "" }],
+  },
+  resumes: [],
 };
 
 export const ResumeSlice = createSlice({
   name: "resume",
   initialState,
   reducers: {
-    SetFullname: (state, action) => {
-      state.fullname = action.payload;
-    },
-    SetEmail: (state, action) => {
-      state.email = action.payload;
-    },
-    SetPhonenumber: (state, action) => {
-      state.phonenumber = action.payload;
-    },
-    SetAddress: (state, action) => {
-      state.address = action.payload;
+    SetPersonalDetails: (state, action) => {
+      state.initialresume.fullname = action.payload.fullname;
     },
   },
 });
-export const { SetFullname, SetEmail, SetPhonenumber, SetAddress } = ResumeSlice.actions;
+export const {
+  SetFullname,
+  SetEmail,
+  SetPhonenumber,
+  SetAddress,
+  SetResumeData,
+  SetPersonalDetails,
+} = ResumeSlice.actions;
 
 export default ResumeSlice.reducer;
