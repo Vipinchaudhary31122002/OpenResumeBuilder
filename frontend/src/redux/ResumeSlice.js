@@ -77,17 +77,10 @@ export const ResumeSlice = createSlice({
   initialState,
   reducers: {
     SetPersonalDetails: (state, action) => {
-      state.initialresume.fullname = action.payload.fullname;
+      state.initialresume = {...action.payload };
     },
   },
 });
-export const {
-  SetFullname,
-  SetEmail,
-  SetPhonenumber,
-  SetAddress,
-  SetResumeData,
-  SetPersonalDetails,
-} = ResumeSlice.actions;
+export const { SetPersonalDetails } = ResumeSlice.actions;
 
 export default ResumeSlice.reducer;
