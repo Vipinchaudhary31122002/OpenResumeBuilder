@@ -5,15 +5,11 @@ import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import {
-  PersonalDetailsForm,
-  CertificatesForm,
-  CustomSectionsForm,
-  SkillsForm,
-  SpokenLanguagesForm,
-  ProjectsForm,
-  LinksForm,
+  PersonalDetailForm,
+  CertificateForm,
+  ProjectForm,
+  LinkForm,
   WorkExperienceForm,
-  SummaryForm,
   EducationForm,
 } from "./components/ResumeForms/ResumeForms.jsx";
 import { useSelector } from "react-redux";
@@ -43,52 +39,32 @@ const Builder = () => {
     {
       id: 1,
       title: "Personal Details",
-      content: <PersonalDetailsForm />,
+      content: <PersonalDetailForm />,
     },
     {
       id: 2,
       title: "Project Details",
-      content: <ProjectsForm />,
+      content: <ProjectForm />,
     },
     {
       id: 3,
-      title: "Summary",
-      content: <SummaryForm />,
+      title: "Links",
+      content: <LinkForm />,
     },
     {
       id: 4,
-      title: "Links",
-      content: <LinksForm />,
-    },
-    {
-      id: 5,
       title: "Work Experience",
       content: <WorkExperienceForm />,
     },
     {
-      id: 6,
+      id: 5,
       title: "Education Details",
       content: <EducationForm />,
     },
     {
-      id: 7,
-      title: "Skills ",
-      content: <SkillsForm />,
-    },
-    {
-      id: 8,
+      id: 6,
       title: "Certificates",
-      content: <CertificatesForm />,
-    },
-    {
-      id: 9,
-      title: "Spoken languages",
-      content: <SpokenLanguagesForm />,
-    },
-    {
-      id: 10,
-      title: "Custom Section",
-      content: <CustomSectionsForm />,
+      content: <CertificateForm />,
     },
   ];
   return (

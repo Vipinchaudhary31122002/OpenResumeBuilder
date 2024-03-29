@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { SetPersonalDetails } from "src/redux/ResumeSlice";
 import { debounce } from "lodash";
-const PersonalDetailsForm = () => {
+const PersonalDetailForm = () => {
   const dispatch = useDispatch();
   const { register, watch } = useForm();
   const { fullname, headline, email, phonenumber, address } = useSelector(
@@ -82,17 +82,6 @@ const PersonalDetailsForm = () => {
         className="my-3"
         {...register("address")}
       />
-    </>
-  );
-};
-
-const WorkExperienceForm = () => {
-  return <div> WorkExperienceForm</div>;
-};
-
-const SummaryForm = () => {
-  return (
-    <>
       <Form.Control
         as="textarea"
         placeholder="Enter a summary about yourself"
@@ -102,15 +91,11 @@ const SummaryForm = () => {
   );
 };
 
-const SpokenLanguagesForm = () => {
-  return <div>SpokenLanguagesForm</div>;
+const WorkExperienceForm = () => {
+  return <div> WorkExperienceForm</div>;
 };
 
-const SkillsForm = () => {
-  return <div>SkillsForm</div>;
-};
-
-const ProjectsForm = () => {
+const ProjectForm = () => {
   return (
     <>
       <h1>This is ProjectsFrom</h1>
@@ -118,7 +103,7 @@ const ProjectsForm = () => {
   );
 };
 
-const LinksForm = () => {
+const LinkForm = () => {
   return <div>LinksForm</div>;
 };
 
@@ -126,23 +111,17 @@ const EducationForm = () => {
   return <div>EducationForm</div>;
 };
 
-const CustomSectionsForm = () => {
-  return <div>CustomSectionsForm</div>;
-};
-
-const CertificatesForm = () => {
+const CertificateForm = () => {
   return <div>CertificatesForm</div>;
 };
 
+// Added awards, publications, volunteering and references
+
 export {
-  PersonalDetailsForm,
-  CertificatesForm,
-  CustomSectionsForm,
-  SkillsForm,
-  SpokenLanguagesForm,
-  ProjectsForm,
-  LinksForm,
+  PersonalDetailForm,
+  CertificateForm,
+  ProjectForm,
+  LinkForm,
   WorkExperienceForm,
-  SummaryForm,
   EducationForm,
 };

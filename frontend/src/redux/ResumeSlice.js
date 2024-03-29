@@ -2,15 +2,20 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   initialresume: {
-    fullname: "",
-    headline: "",
-    email: "",
-    phonenumber: "",
-    address: "",
-    website: "",
-    summary: "",
+    personal: {
+      fullname: "",
+      headline: "",
+      email: "",
+      phonenumber: "",
+      address: "",
+      website: "",
+      summary: "",
+      skills: [],
+      spokenlanguages: [],
+      hobbies: [],
+    },
     links: [{ network: "", username: "", website: "" }],
-    experience: [
+    workexperience: [
       {
         campanyname: "",
         position: "",
@@ -30,8 +35,6 @@ const initialState = {
         summary: "",
       },
     ],
-    skills: [],
-    languages: [],
     awards: [{ title: "", date: "", summary: "", organization: "" }],
     certifications: [
       {
@@ -43,7 +46,6 @@ const initialState = {
         keywords: [],
       },
     ],
-    intersets: [],
     projects: [
       {
         name: "",
@@ -54,7 +56,7 @@ const initialState = {
         keywords: [],
       },
     ],
-    publication: [
+    publications: [
       { name: "", publisher: "", data: "", website: "", summary: "" },
     ],
     volunteering: [
