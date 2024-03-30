@@ -3,11 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   initialresume: {
     personal: {
-      fullname: "",
-      headline: "",
-      email: "",
-      phonenumber: "",
-      address: "",
+      fullname: "Optimus Prime",
+      headline: "Prime",
+      email: "cybertron@gmail.com",
+      phonenumber: "000000000",
+      address: "Cybertron",
       website: "",
       summary: "",
       skills: [],
