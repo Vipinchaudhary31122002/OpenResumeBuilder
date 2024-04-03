@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   Page,
   Text,
@@ -7,7 +8,7 @@ import {
   usePDF,
 } from "@react-pdf/renderer";
 import { Document as ViewDoc, Page as ViewPage, pdfjs } from "react-pdf";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
@@ -29,41 +30,46 @@ const styles = StyleSheet.create({
   },
 });
 
+const PdfDoc = ({ data }) => (
+  <Document>
+    <Page size="A4" style={styles.page}>
+      <View style={styles.section}>
+        <Text>Resume Template Section</Text>
+        <Text>{data.fullname}</Text>
+        <Text>{data.headline}</Text>
+        <Text>{data.email}</Text>
+        <Text>{data.phonenumber}</Text>
+        <Text>{data.address}</Text>
+      </View>
+    </Page>
+  </Document>
+);
+
 const PdfCanvas = () => {
-  const data = useSelector((state) => state.resume.initialresume);
-  const { fullname, email, phonenumber, address, headline } = useSelector(
-    (state) => state.resume.initialresume
-  );
-  const PdfDoc = (
-    <Document>
-      <Page size="A4" style={styles.page}>
-        <View style={styles.section}>
-          <Text>Resume Template Section</Text>
-          <Text>{fullname}</Text>
-          <Text>{headline}</Text>
-          <Text>{email}</Text>
-          <Text>{phonenumber}</Text>
-          <Text>{address}</Text>
-        </View>
-      </Page>
-    </Document>
-  );
+  const initialResume = useSelector((state) => state.resume.initialresume);
+  const [data, setData] = useState(initialResume);
   const [instance, updateInstance] = usePDF({ document: PdfDoc });
   // const [numPages, setNumPages] = useState();
   const [pageNumber, setPageNumber] = useState(1);
-
   // function onDocumentLoadSuccess({ numPages }) {
   //   setNumPages(numPages);
   // }
   useEffect(() => {
-    updateInstance(PdfDoc);
+    setData(initialResume);
+    updateInstance(<PdfDoc data={data} />);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data, updateInstance]);
+  }, [data, updateInstance, initialResume]);
   return (
     <>
-      <ViewDoc file={instance.url} >
+      <ViewDoc file={instance.url}>
         <ViewPage pageNumber={pageNumber} width={400} />
       </ViewDoc>
+      {/* <canvas
+        id="PdfCanvas"
+        width="600"
+        height="600"
+        style={{ backgroundColor: "white" }}
+      ></canvas> */}
     </>
   );
 };

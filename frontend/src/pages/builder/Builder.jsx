@@ -82,7 +82,7 @@ const Builder = () => {
       <div className="BuilderPage container-fluid">
         <div className="ResumeForm">
           <div className="d-flex justify-content-between m-1">
-            <Link to="/dashboard/resumes" className="btn btn-outline-primary">
+            <Link to="/" className="btn btn-outline-primary">
               <FaHome />
             </Link>
             <Button variant="outline-primary">Download Pdf</Button>

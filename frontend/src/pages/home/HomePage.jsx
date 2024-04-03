@@ -1,23 +1,24 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { Link } from "react-router-dom";
+// import { Outlet, useNavigate } from "react-router-dom";
+// import { useState } from "react";
 // import { useEffect } from "react";
 // import { useCookies } from "react-cookie";
-import { toast } from "react-toastify";
-import Modal from "react-bootstrap/Modal";
+// import { toast } from "react-toastify";
+// import Modal from "react-bootstrap/Modal";
 import "./HomePage.css";
 // import axios from "axios";
 const HomePage = () => {
-  const [show, setShow] = useState(false);
-  const [modalTitle, setModalTitle] = useState("Sign up");
-  const navigate = useNavigate();
-  const handleClose = () => {
-    setShow(false);
-    navigate("/");
-  };
-  const handleShow = (title) => {
-    setShow(true);
-    setModalTitle(title);
-  };
+  // const [show, setShow] = useState(false);
+  // const [modalTitle, setModalTitle] = useState("Sign up");
+  // const navigate = useNavigate();
+  // const handleClose = () => {
+  //   setShow(false);
+  //   navigate("/");
+  // };
+  // const handleShow = (title) => {
+  //   setShow(true);
+  //   setModalTitle(title);
+  // };
   // const [cookies, removeCookie] = useCookies([]);
   // useEffect(() => {
   //   const verifyCookie = async () => {
@@ -45,7 +46,7 @@ const HomePage = () => {
   return (
     <>
       {/* modal box */}
-      <Modal show={show} onHide={handleClose} data-bs-theme="dark" centered>
+      {/* <Modal show={show} onHide={handleClose} data-bs-theme="dark" centered>
         <Modal.Header closeButton>
           <Modal.Title style={{ color: "white" }}>{modalTitle}</Modal.Title>
         </Modal.Header>
@@ -75,32 +76,39 @@ const HomePage = () => {
             Forgot Password
           </Link>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
       <div className="HomePage container-fluid d-flex flex-column justify-content-center align-items-center">
         <span>OpenResumeBuilder</span>
         <div className="d-flex justify-content-center">
           <Link
+            to="/builder"
+            type="button"
+            className="btn btn-outline-primary m-1"
+          >
+            Get Started
+          </Link>
+          {/* <Link
             to="/signin"
             type="button"
             onClick={() => handleShow("Sign In")}
             className="btn btn-outline-primary m-1"
           >
             Get Started
-          </Link>
-          <Link
+          </Link> */}
+          {/* <Link
             to="dashboard/resumes"
             type="button"
             className="btn btn-outline-primary m-1"
           >
             Go To Dashboard
-          </Link>
-          <button
+          </Link> */}
+          {/* <button
             className="btn btn-outline-primary m-1"
             type="button"
             onClick={() => toast("Testing Notification Indicator!")}
           >
             Testing Notification
-          </button>
+          </button> */}
           {/* <Link
             to="/"
             type="button"
