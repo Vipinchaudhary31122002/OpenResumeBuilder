@@ -31,17 +31,15 @@ const initialState = {
         website: "jhondoe@Linkedin.com",
       },
     ],
-    workexperience: [
+    workexperiences: [
       {
         campanyname: "Google",
         position: "SDE1",
         duration: "2 years",
-        address: "Mumbai",
-        website: "Google.com",
         summary: "Hello i am a googler",
       },
     ],
-    education: [
+    educations: [
       {
         universityname: "XYZ University",
         degree: "Bachelor in Computer Engineering",
@@ -58,7 +56,6 @@ const initialState = {
         website: "Ultron.render.com",
         summary:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nisl eros, commodo in ultricies a, interdum vitae ipsum. Cras eget arcu sit amet magna tristique cursus. Cras egestas nunc a ultrices pharetra. ",
-        keywords: ["CPP", "Java", "AI"],
       },
     ],
     // awards: [{ title: "", date: "", summary: "", organization: "" }],

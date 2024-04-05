@@ -49,7 +49,7 @@ const Builder = () => {
     },
     {
       id: 4,
-      title: "Work Experience",
+      title: "Work Experience Details",
       content: <WorkExperienceForm />,
     },
     {

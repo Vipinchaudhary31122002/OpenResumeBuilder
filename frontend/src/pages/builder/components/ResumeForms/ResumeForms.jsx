@@ -4,10 +4,17 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 // import { SetPersonalDetails, SetSkills } from "src/redux/ResumeSlice";
 // import { debounce } from "lodash";
-import Badge from "react-bootstrap/Badge";
 import Button from "react-bootstrap/Button";
 import Stack from "react-bootstrap/Stack";
-import DisplayField from "./Components/DisplayField";
+import {
+  DisplayLink,
+  DisplaySkill,
+  DisplaySpokenLanguage,
+  DisplayHobby,
+  DisplayProject,
+  DisplayEducation,
+  DisplayWorkExperience,
+} from "./Components/DisplayInfo";
 const PersonalDetailForm = () => {
   // const dispatch = useDispatch();
   const { register } = useForm();
@@ -129,9 +136,7 @@ const PersonalDetailForm = () => {
         </Button>
       </Stack>
       {skills.map((skill, index) => (
-        <Badge key={index} className="mx-1">
-          {skill}
-        </Badge>
+        <DisplaySkill key={index} skill={skill} />
       ))}
       <Stack direction="horizontal">
         <Form.Control
@@ -146,9 +151,7 @@ const PersonalDetailForm = () => {
         </Button>
       </Stack>
       {spokenlanguages.map((spokenlanguage, index) => (
-        <Badge key={index} className="mx-1">
-          {spokenlanguage}
-        </Badge>
+        <DisplaySpokenLanguage key={index} spokenlanguage={spokenlanguage} />
       ))}
       <Stack direction="horizontal">
         <Form.Control
@@ -163,22 +166,72 @@ const PersonalDetailForm = () => {
         </Button>
       </Stack>
       {hobbies.map((hobby, index) => (
-        <Badge key={index} className="mx-1">
-          {hobby}
-        </Badge>
+        <DisplayHobby key={index} hobby={hobby} />
       ))}
     </>
   );
 };
 
 const WorkExperienceForm = () => {
-  return <div> WorkExperienceForm</div>;
+  const WorkExperiences = useSelector(
+    (state) => state.resume.initialresume.workexperiences
+  );
+  return (
+    <>
+      <Form.Control
+        type="text"
+        placeholder="Enter your company name"
+        className="my-2"
+      />
+      <Form.Control
+        type="text"
+        placeholder="Enter your position name"
+        className="my-2"
+      />
+      <Form.Control
+        type="text"
+        placeholder="Enter your work duration"
+        className="my-2"
+      />
+      <Form.Control
+        as="textarea"
+        placeholder="Enter a summary your work"
+        style={{ height: "200px" }}
+      />
+      {WorkExperiences.map((workexperience, index) => (
+        <DisplayWorkExperience workexperience={workexperience} key={index} />
+      ))}
+    </>
+  );
 };
 
 const ProjectForm = () => {
+  const Projects = useSelector((state) => state.resume.initialresume.projects);
   return (
     <>
-      <h1>This is ProjectsFrom</h1>
+      <Form.Control
+        type="text"
+        placeholder="Enter your project name"
+        className="my-2"
+      />
+      <Form.Control
+        type="month"
+        placeholder="Enter your duration of project"
+        className="my-2"
+      />
+      <Form.Control
+        type="text"
+        placeholder="Enter your prject url"
+        className="my-2"
+      />
+      <Form.Control
+        as="textarea"
+        placeholder="Enter a summary about project"
+        style={{ height: "200px" }}
+      />
+      {Projects.map((project, index) => (
+        <DisplayProject project={project} key={index} />
+      ))}
     </>
   );
 };
@@ -190,34 +243,62 @@ const LinkForm = () => {
       <Form.Control
         type="text"
         placeholder="Enter your network name"
-        // value={fullname}
-        // {...register("fullname")}
         className="my-2"
       />
       <Form.Control
         type="text"
         placeholder="Enter your username"
-        // value={fullname}
-        // {...register("fullname")}
         className="my-2"
       />
       <Form.Control
         type="text"
         placeholder="Enter your profile url"
-        // value={fullname}
-        // {...register("fullname")}
         className="my-2"
       />
       <Button className="my-1">Add</Button>
       {Links.map((link, index) => (
-        <DisplayField link={link} key={index} />
+        <DisplayLink link={link} key={index} />
       ))}
     </>
   );
 };
 
 const EducationForm = () => {
-  return <div>EducationForm</div>;
+  const Educations = useSelector(
+    (state) => state.resume.initialresume.educations
+  );
+  return (
+    <>
+      <Form.Control
+        type="text"
+        placeholder="Enter your university name"
+        className="my-2"
+      />
+      <Form.Control
+        type="month"
+        placeholder="Enter your degree name"
+        className="my-2"
+      />
+      <Form.Control
+        type="digit"
+        placeholder="Enter your score"
+        className="my-2"
+      />
+      <Form.Control
+        type="text"
+        placeholder="Enter your duration"
+        className="my-2"
+      />
+      <Form.Control
+        as="textarea"
+        placeholder="Enter a summary about your education"
+        style={{ height: "200px" }}
+      />
+      {Educations.map((education, index) => (
+        <DisplayEducation education={education} key={index} />
+      ))}
+    </>
+  );
 };
 
 // const CertificateForm = () => {
