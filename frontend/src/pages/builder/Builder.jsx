@@ -1,4 +1,4 @@
-import { Suspense, lazy } from "react";
+// import { Suspense, lazy } from "react";
 import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import Button from "react-bootstrap/Button";
@@ -6,7 +6,7 @@ import { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import {
   PersonalDetailForm,
-  CertificateForm,
+  // CertificateForm,
   ProjectForm,
   LinkForm,
   WorkExperienceForm,
@@ -14,8 +14,8 @@ import {
 } from "./components/ResumeForms/ResumeForms.jsx";
 
 // Lazy-loaded components
-const PdfCanvas = lazy(() => import("./components/PdfCanvas/PdfCanvas"));
-import LoadingIndicator from "src/utils/LoadingIndicator";
+// const PdfCanvas = lazy(() => import("./components/PdfCanvas/PdfCanvas"));
+// import LoadingIndicator from "src/utils/LoadingIndicator";
 
 import "./Builder.css";
 const Builder = () => {
@@ -57,11 +57,11 @@ const Builder = () => {
       title: "Education Details",
       content: <EducationForm />,
     },
-    {
-      id: 6,
-      title: "Certificates",
-      content: <CertificateForm />,
-    },
+    // {
+    //   id: 6,
+    //   title: "Certificates",
+    //   content: <CertificateForm />,
+    // },
   ];
   return (
     <>
@@ -102,9 +102,9 @@ const Builder = () => {
           </div>
         </div>
         <div className="PdfCanvas">
-          <Suspense fallback={<LoadingIndicator />}>
+          {/* <Suspense fallback={<LoadingIndicator />}>
             <PdfCanvas />
-          </Suspense>
+          </Suspense> */}
         </div>
       </div>
     </>

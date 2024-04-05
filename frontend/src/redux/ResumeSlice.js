@@ -3,73 +3,89 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   initialresume: {
     personal: {
-      fullname: "Optimus Prime",
-      headline: "Prime",
-      email: "cybertron@gmail.com",
-      phonenumber: "000000000",
-      address: "Cybertron",
-      website: "",
-      summary: "",
-      skills: [],
-      spokenlanguages: [],
-      hobbies: [],
+      fullname: "Jhon Doe",
+      headline: "Software Developer",
+      email: "JhoneDoe@gmail.com",
+      phonenumber: "910005110",
+      address: "Earth",
+      website: "jhondoe.com",
+      summary: "Hello i am a professional Software Developer.",
+      skills: [
+        "JavaScript",
+        "React",
+        "Nodejs",
+        "Expressjs",
+        "MongoDB",
+        "HTML5",
+        "CSS3",
+        "Bootstrap",
+      ],
+      spokenlanguages: ["English", "Hindi"],
+      hobbies: ["Scoccer", "Baseball", "Gym"],
     },
-    links: [{ network: "", username: "", website: "" }],
+    links: [
+      { network: "Github", username: "jhondoe", website: "jhondoe@github.com" },
+      {
+        network: "Linkedin",
+        username: "jhondoe",
+        website: "jhondoe@Linkedin.com",
+      },
+    ],
     workexperience: [
       {
-        campanyname: "",
-        position: "",
-        duration: "",
-        address: "",
-        website: "",
-        summary: "",
+        campanyname: "Google",
+        position: "SDE1",
+        duration: "2 years",
+        address: "Mumbai",
+        website: "Google.com",
+        summary: "Hello i am a googler",
       },
     ],
     education: [
       {
-        universityname: "",
-        degree: "",
-        score: "",
-        duration: "",
-        website: "",
-        summary: "",
-      },
-    ],
-    awards: [{ title: "", date: "", summary: "", organization: "" }],
-    certifications: [
-      {
-        name: "",
-        description: "",
-        duration: "",
-        website: "",
-        summary: "",
-        keywords: [],
+        universityname: "XYZ University",
+        degree: "Bachelor in Computer Engineering",
+        score: "9",
+        duration: "2020",
+        summary:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nisl eros, commodo in ultricies a, interdum vitae ipsum. Cras eget arcu sit amet magna tristique cursus. Cras egestas nunc a ultrices pharetra. ",
       },
     ],
     projects: [
       {
-        name: "",
-        description: "",
-        duration: "",
-        website: "",
-        summary: "",
-        keywords: [],
+        name: "Ultron",
+        duration: "3 year",
+        website: "Ultron.render.com",
+        summary:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nisl eros, commodo in ultricies a, interdum vitae ipsum. Cras eget arcu sit amet magna tristique cursus. Cras egestas nunc a ultrices pharetra. ",
+        keywords: ["CPP", "Java", "AI"],
       },
     ],
-    publications: [
-      { name: "", publisher: "", data: "", website: "", summary: "" },
-    ],
-    volunteering: [
-      {
-        organization: "",
-        position: "",
-        duration: "",
-        location: "",
-        website: "",
-        summary: "",
-      },
-    ],
-    references: [{ name: "", description: "", website: "", summary: "" }],
+    // awards: [{ title: "", date: "", summary: "", organization: "" }],
+    // certifications: [
+    //   {
+    //     name: "",
+    //     description: "",
+    //     duration: "",
+    //     website: "",
+    //     summary: "",
+    //     keywords: [],
+    //   },
+    // ],
+    // publications: [
+    //   { name: "", publisher: "", data: "", website: "", summary: "" },
+    // ],
+    // volunteering: [
+    //   {
+    //     organization: "",
+    //     position: "",
+    //     duration: "",
+    //     location: "",
+    //     website: "",
+    //     summary: "",
+    //   },
+    // ],
+    // references: [{ name: "", description: "", website: "", summary: "" }],
   },
   resumes: [],
 };
@@ -78,11 +94,15 @@ export const ResumeSlice = createSlice({
   name: "resume",
   initialState,
   reducers: {
-    SetPersonalDetails: (state, action) => {
-      state.initialresume = {...action.payload };
-    },
+    // SetPersonalDetails: (state, action) => {
+    //   state.initialresume.personal = { ...action.payload };
+    // },
+    // SetSkills: (state, action) => {
+    //   console.log(action.payload);
+    //   state.initialresume.personal.skills.push(...action.payload);
+    // },
   },
 });
-export const { SetPersonalDetails } = ResumeSlice.actions;
+export const { SetPersonalDetails, SetSkills } = ResumeSlice.actions;
 
 export default ResumeSlice.reducer;
