@@ -9,9 +9,7 @@ const DisplayWorkExperience = (props) => {
     <>
       <Toast show={show} onClose={toggleShow} bg="primary" className="my-2">
         <Toast.Header>
-          <strong className="me-auto">
-            {props.workexperience.campanyname}
-          </strong>
+          <strong className="me-auto">{props.workexperience.company}</strong>
         </Toast.Header>
       </Toast>
     </>
@@ -25,7 +23,7 @@ const DisplayEducation = (props) => {
     <>
       <Toast show={show} onClose={toggleShow} bg="primary" className="my-2">
         <Toast.Header>
-          <strong className="me-auto">{props.education.degree}</strong>
+          <strong className="me-auto">{props.education.universityname}</strong>
         </Toast.Header>
       </Toast>
     </>
@@ -53,7 +51,7 @@ const DisplayLink = (props) => {
     <>
       <Toast show={show} onClose={toggleShow} bg="primary" className="my-2">
         <Toast.Header>
-          <strong className="me-auto">{props.link.network}</strong>
+          <strong className="me-auto">{props.link.networkname}</strong>
         </Toast.Header>
       </Toast>
     </>

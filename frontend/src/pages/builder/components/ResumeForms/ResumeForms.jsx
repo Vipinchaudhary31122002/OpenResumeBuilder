@@ -1,11 +1,25 @@
-import Form from "react-bootstrap/Form";
 // import { useEffect, useCallback } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
-// import { SetPersonalDetails, SetSkills } from "src/redux/ResumeSlice";
 // import { debounce } from "lodash";
+
+// Redux imports
+import { useSelector, useDispatch } from "react-redux";
+import {
+  SetProjectDetails,
+  SetWorkExperienceDetails,
+  SetEducationDetails,
+  SetLinksDetails,
+  SetSkills,
+  SetSpokenLanguages,
+  SetHobbies,
+} from "src/redux/ResumeSlice";
+
+// React Bootstrap imports
+import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Stack from "react-bootstrap/Stack";
+
+// Display components imports
 import {
   DisplayLink,
   DisplaySkill,
@@ -15,17 +29,22 @@ import {
   DisplayEducation,
   DisplayWorkExperience,
 } from "./Components/DisplayInfo";
+
 const PersonalDetailForm = () => {
-  // const dispatch = useDispatch();
-  const { register } = useForm();
+  const dispatch = useDispatch();
+  const { register, handleSubmit } = useForm();
+  const SubmitSkills = (data) => dispatch(SetSkills(data.skills));
+  const SubmitLanguages = (data) =>
+    dispatch(SetSpokenLanguages(data.spokenlanguages));
+  const SubmitHobbies = (data) => dispatch(SetHobbies(data.hobbies));
   const {
-    fullname,
-    headline,
-    email,
-    phonenumber,
-    address,
-    website,
-    summary,
+    // fullname,
+    // headline,
+    // email,
+    // phonenumber,
+    // address,
+    // website,
+    // summary,
     skills,
     spokenlanguages,
     hobbies,
@@ -68,136 +87,191 @@ const PersonalDetailForm = () => {
 
   return (
     <>
-      <Form.Control
-        type="text"
-        placeholder="Enter your fullname"
-        value={fullname}
-        {...register("fullname")}
-        size="sm"
-      />
-      <Form.Control
-        type="text"
-        placeholder="Enter headline"
-        value={headline}
-        className="my-2"
-        {...register("headline")}
-        size="sm"
-      />
-      <Form.Control
-        type="email"
-        placeholder="Enter your email address"
-        value={email}
-        className="my-2"
-        {...register("email")}
-        size="sm"
-      />
-      <Form.Control
-        type="digit"
-        placeholder="Enter your phone number"
-        value={phonenumber}
-        className="my-2"
-        size="sm"
-        {...register("phonenumber")}
-      />
-      <Form.Control
-        type="text"
-        value={address}
-        placeholder="Enter your address"
-        className="my-2"
-        size="sm"
-        {...register("address")}
-      />
-      <Form.Control
-        type="text"
-        value={website}
-        placeholder="Enter your website"
-        className="my-2"
-        size="sm"
-        {...register("website")}
-      />
-      <Form.Control
-        as="textarea"
-        placeholder="Enter a summary about yourself"
-        size="sm"
-        value={summary}
-        style={{ height: "200px" }}
-        {...register("summary")}
-      />
-      <Stack direction="horizontal">
+      <Form.Group className="mb-1">
+        <Form.Label className="mb-0">Fullname</Form.Label>
         <Form.Control
           type="text"
-          placeholder="Enter you skills"
-          className="my-2"
-          {...register("skills")}
+          placeholder="Jhon Doe"
+          // value={fullname}
+          {...register("fullname")}
           size="sm"
         />
-        <Button size="sm" className="mx-1">
-          Add
-        </Button>
-      </Stack>
-      {skills.map((skill, index) => (
-        <DisplaySkill key={index} skill={skill} />
-      ))}
-      <Stack direction="horizontal">
+      </Form.Group>
+      <Form.Group className="mb-1">
+        <Form.Label className="mb-0">Headline</Form.Label>
         <Form.Control
           type="text"
-          placeholder="Enter your Spoken languages"
-          className="my-2"
-          {...register("spokenlanguages")}
+          placeholder="Software Developer"
+          // value={headline}
+          {...register("headline")}
           size="sm"
         />
-        <Button size="sm" className="mx-1">
-          Add
-        </Button>
-      </Stack>
-      {spokenlanguages.map((spokenlanguage, index) => (
-        <DisplaySpokenLanguage key={index} spokenlanguage={spokenlanguage} />
-      ))}
-      <Stack direction="horizontal">
+      </Form.Group>
+      <Form.Group className="mb-1">
+        <Form.Label className="mb-0">Email Address</Form.Label>
+        <Form.Control
+          type="email"
+          placeholder="JhonDoe@gmail.com"
+          // value={email}
+          {...register("email")}
+          size="sm"
+        />
+      </Form.Group>
+      <Form.Group className="mb-1">
+        <Form.Label className="mb-0">Phone Number</Form.Label>
+        <Form.Control
+          type="tel"
+          placeholder="+91 1234567890"
+          // value={phonenumber}
+          size="sm"
+          {...register("phonenumber")}
+        />
+      </Form.Group>
+      <Form.Group className="mb-1">
+        <Form.Label className="mb-0">Address</Form.Label>
         <Form.Control
           type="text"
-          placeholder="Enter you hobbies"
-          className="my-2"
-          {...register("hobbies")}
+          // value={address}
+          placeholder="City State Country"
           size="sm"
+          {...register("address")}
         />
-        <Button size="sm" className="mx-1">
-          Add
-        </Button>
-      </Stack>
-      {hobbies.map((hobby, index) => (
-        <DisplayHobby key={index} hobby={hobby} />
-      ))}
+      </Form.Group>
+      <Form.Group className="mb-1">
+        <Form.Label className="mb-0">Website URL</Form.Label>
+        <Form.Control
+          type="text"
+          // value={website}
+          placeholder="jhondoe.com"
+          size="sm"
+          {...register("website")}
+        />
+      </Form.Group>
+      <Form.Group className="mb-1">
+        <Form.Label className="mb-0">Summary</Form.Label>
+        <Form.Control
+          as="textarea"
+          placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          size="sm"
+          // value={summary}
+          style={{ height: "200px" }}
+          {...register("summary")}
+        />
+      </Form.Group>
+      <form onSubmit={handleSubmit(SubmitSkills)}>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Skills</Form.Label>
+          <Stack direction="horizontal">
+            <Form.Control
+              type="text"
+              placeholder="skill"
+              {...register("skills")}
+              size="sm"
+            />
+            <Button size="sm" className="mx-1" type="submit">
+              Add
+            </Button>
+          </Stack>
+          {skills.map((skill, index) => (
+            <DisplaySkill key={index} skill={skill} />
+          ))}
+        </Form.Group>
+      </form>
+      <form onSubmit={handleSubmit(SubmitLanguages)}>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Spoken languages</Form.Label>
+          <Stack direction="horizontal">
+            <Form.Control
+              type="text"
+              placeholder="language"
+              {...register("spokenlanguages")}
+              size="sm"
+            />
+            <Button size="sm" className="mx-1" type="submit">
+              Add
+            </Button>
+          </Stack>
+          {spokenlanguages.map((spokenlanguage, index) => (
+            <DisplaySpokenLanguage
+              key={index}
+              spokenlanguage={spokenlanguage}
+            />
+          ))}
+        </Form.Group>
+      </form>
+      <form onSubmit={handleSubmit(SubmitHobbies)}>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Hobbies</Form.Label>
+          <Stack direction="horizontal">
+            <Form.Control
+              type="text"
+              placeholder="hobby"
+              {...register("hobbies")}
+              size="sm"
+            />
+            <Button size="sm" className="mx-1" type="submit">
+              Add
+            </Button>
+          </Stack>
+          {hobbies.map((hobby, index) => (
+            <DisplayHobby key={index} hobby={hobby} />
+          ))}
+        </Form.Group>
+      </form>
     </>
   );
 };
 
 const WorkExperienceForm = () => {
+  const dispatch = useDispatch();
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => dispatch(SetWorkExperienceDetails(data));
   const WorkExperiences = useSelector(
     (state) => state.resume.initialresume.workexperiences
   );
   return (
     <>
-      <Form.Control
-        type="text"
-        placeholder="Enter your company name"
-        className="my-2"
-      />
-      <Form.Control
-        type="text"
-        placeholder="Enter your position name"
-        className="my-2"
-      />
-      <Form.Control
-        type="text"
-        placeholder="Enter your work duration"
-        className="my-2"
-      />
-      <Form.Control
-        as="textarea"
-        placeholder="Enter a summary your work"
-        style={{ height: "200px" }}
-      />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Company name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="XYZ"
+            size="sm"
+            {...register("company")}
+          />
+        </Form.Group>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Position</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="XYZ Position"
+            size="sm"
+            {...register("position")}
+          />
+        </Form.Group>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Duration</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="January 2024 - March 2024"
+            size="sm"
+            {...register("duration")}
+          />
+        </Form.Group>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Summary</Form.Label>
+          <Form.Control
+            as="textarea"
+            placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non luctus mi."
+            style={{ height: "200px" }}
+            {...register("summary")}
+          />
+        </Form.Group>
+        <Button className="my-1" type="submit">
+          Add
+        </Button>
+      </form>
       {WorkExperiences.map((workexperience, index) => (
         <DisplayWorkExperience workexperience={workexperience} key={index} />
       ))}
@@ -206,29 +280,53 @@ const WorkExperienceForm = () => {
 };
 
 const ProjectForm = () => {
+  const dispatch = useDispatch();
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => dispatch(SetProjectDetails(data));
   const Projects = useSelector((state) => state.resume.initialresume.projects);
   return (
     <>
-      <Form.Control
-        type="text"
-        placeholder="Enter your project name"
-        className="my-2"
-      />
-      <Form.Control
-        type="month"
-        placeholder="Enter your duration of project"
-        className="my-2"
-      />
-      <Form.Control
-        type="text"
-        placeholder="Enter your prject url"
-        className="my-2"
-      />
-      <Form.Control
-        as="textarea"
-        placeholder="Enter a summary about project"
-        style={{ height: "200px" }}
-      />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Project name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="XYZ"
+            size="sm"
+            {...register("name")}
+          />
+        </Form.Group>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Duration</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="January 2024 - March 2024"
+            size="sm"
+            {...register("duration")}
+          />
+        </Form.Group>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Project URL</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="xyz.com"
+            size="sm"
+            {...register("url")}
+          />
+        </Form.Group>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Project Summary</Form.Label>
+          <Form.Control
+            as="textarea"
+            placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+            {...register("summary")}
+            style={{ height: "200px" }}
+          />
+        </Form.Group>
+        <Button className="my-1" type="submit">
+          Add
+        </Button>
+      </form>
       {Projects.map((project, index) => (
         <DisplayProject project={project} key={index} />
       ))}
@@ -237,26 +335,45 @@ const ProjectForm = () => {
 };
 
 const LinkForm = () => {
+  const dispatch = useDispatch();
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => dispatch(SetLinksDetails(data));
   const Links = useSelector((state) => state.resume.initialresume.links);
   return (
     <>
-      <Form.Control
-        type="text"
-        placeholder="Enter your network name"
-        className="my-2"
-      />
-      <Form.Control
-        type="text"
-        placeholder="Enter your username"
-        className="my-2"
-      />
-      <Form.Control
-        type="text"
-        placeholder="Enter your profile url"
-        className="my-2"
-      />
-      <Button className="my-1">Add</Button>
-      {Links.map((link, index) => (
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Network name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="LinkedIn"
+            size="sm"
+            {...register("networkname")}
+          />
+        </Form.Group>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Username</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="jhonedoe"
+            size="sm"
+            {...register("username")}
+          />
+        </Form.Group>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Profile URL</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="jhonedoe@linkedin.com"
+            size="sm"
+            {...register("profileurl")}
+          />
+        </Form.Group>
+        <Button className="my-1" type="submit">
+          Add
+        </Button>
+      </form>
+      {Links?.map((link, index) => (
         <DisplayLink link={link} key={index} />
       ))}
     </>
@@ -264,36 +381,64 @@ const LinkForm = () => {
 };
 
 const EducationForm = () => {
+  const dispatch = useDispatch();
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => dispatch(SetEducationDetails(data));
   const Educations = useSelector(
     (state) => state.resume.initialresume.educations
   );
   return (
     <>
-      <Form.Control
-        type="text"
-        placeholder="Enter your university name"
-        className="my-2"
-      />
-      <Form.Control
-        type="month"
-        placeholder="Enter your degree name"
-        className="my-2"
-      />
-      <Form.Control
-        type="digit"
-        placeholder="Enter your score"
-        className="my-2"
-      />
-      <Form.Control
-        type="text"
-        placeholder="Enter your duration"
-        className="my-2"
-      />
-      <Form.Control
-        as="textarea"
-        placeholder="Enter a summary about your education"
-        style={{ height: "200px" }}
-      />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">University name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="XYZ University"
+            size="sm"
+            {...register("universityname")}
+          />
+        </Form.Group>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Degree name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="XYZ Degree"
+            size="sm"
+            {...register("degreename")}
+          />
+        </Form.Group>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Grade Score</Form.Label>
+          <Form.Control
+            type="digit"
+            placeholder="Out of 10"
+            size="sm"
+            {...register("grade")}
+          />
+        </Form.Group>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Duration</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="January 2024 - March 2024"
+            size="sm"
+            {...register("duration")}
+          />
+        </Form.Group>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Summary</Form.Label>
+          <Form.Control
+            as="textarea"
+            placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+            {...register("summary")}
+            style={{ height: "200px" }}
+          />
+        </Form.Group>
+        <Button className="my-1" type="submit">
+          Add
+        </Button>
+      </form>
       {Educations.map((education, index) => (
         <DisplayEducation education={education} key={index} />
       ))}
