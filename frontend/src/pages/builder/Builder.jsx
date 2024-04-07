@@ -71,6 +71,7 @@ const Builder = () => {
         onHide={handleClose}
         backdrop={false}
         data-bs-theme="dark"
+        className="bg-black"
       >
         <Offcanvas.Header closeButton>
           <Offcanvas.Title className="text-light">

@@ -8,10 +8,10 @@ import {
   SetProjectDetails,
   SetWorkExperienceDetails,
   SetEducationDetails,
-  SetLinksDetails,
-  SetSkills,
-  SetSpokenLanguages,
-  SetHobbies,
+  SetLinkDetails,
+  SetSkillDetails,
+  SetSpokenLanguageDetails,
+  SetHobbyDetails,
 } from "src/redux/ResumeSlice";
 
 // React Bootstrap imports
@@ -33,10 +33,12 @@ import {
 const PersonalDetailForm = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
-  const SubmitSkills = (data) => dispatch(SetSkills(data.skills));
+  const SubmitSkills = (data) => {
+    dispatch(SetSkillDetails(data.skills));
+  };
   const SubmitLanguages = (data) =>
-    dispatch(SetSpokenLanguages(data.spokenlanguages));
-  const SubmitHobbies = (data) => dispatch(SetHobbies(data.hobbies));
+    dispatch(SetSpokenLanguageDetails(data.spokenlanguages));
+  const SubmitHobbies = (data) => dispatch(SetHobbyDetails(data.hobbies));
   const {
     // fullname,
     // headline,
@@ -168,7 +170,12 @@ const PersonalDetailForm = () => {
               {...register("skills")}
               size="sm"
             />
-            <Button size="sm" className="mx-1" type="submit">
+            <Button
+              size="sm"
+              className="mx-1"
+              variant="outline-primary"
+              type="submit"
+            >
               Add
             </Button>
           </Stack>
@@ -187,7 +194,12 @@ const PersonalDetailForm = () => {
               {...register("spokenlanguages")}
               size="sm"
             />
-            <Button size="sm" className="mx-1" type="submit">
+            <Button
+              size="sm"
+              className="mx-1"
+              variant="outline-primary"
+              type="submit"
+            >
               Add
             </Button>
           </Stack>
@@ -209,7 +221,12 @@ const PersonalDetailForm = () => {
               {...register("hobbies")}
               size="sm"
             />
-            <Button size="sm" className="mx-1" type="submit">
+            <Button
+              size="sm"
+              className="mx-1"
+              variant="outline-primary"
+              type="submit"
+            >
               Add
             </Button>
           </Stack>
@@ -268,7 +285,7 @@ const WorkExperienceForm = () => {
             {...register("summary")}
           />
         </Form.Group>
-        <Button className="my-1" type="submit">
+        <Button className="my-1" variant="outline-primary" type="submit">
           Add
         </Button>
       </form>
@@ -323,7 +340,7 @@ const ProjectForm = () => {
             style={{ height: "200px" }}
           />
         </Form.Group>
-        <Button className="my-1" type="submit">
+        <Button className="my-1" variant="outline-primary" type="submit">
           Add
         </Button>
       </form>
@@ -337,7 +354,7 @@ const ProjectForm = () => {
 const LinkForm = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => dispatch(SetLinksDetails(data));
+  const onSubmit = (data) => dispatch(SetLinkDetails(data));
   const Links = useSelector((state) => state.resume.initialresume.links);
   return (
     <>
@@ -369,7 +386,7 @@ const LinkForm = () => {
             {...register("profileurl")}
           />
         </Form.Group>
-        <Button className="my-1" type="submit">
+        <Button className="my-1" variant="outline-primary" type="submit">
           Add
         </Button>
       </form>
@@ -435,7 +452,7 @@ const EducationForm = () => {
             style={{ height: "200px" }}
           />
         </Form.Group>
-        <Button className="my-1" type="submit">
+        <Button className="my-1" variant="outline-primary" type="submit">
           Add
         </Button>
       </form>
@@ -446,17 +463,17 @@ const EducationForm = () => {
   );
 };
 
-// const CertificateForm = () => {
-//   return <div>CertificatesForm</div>;
-// };
-
-// Added awards, publications, volunteering and references
-
 export {
   PersonalDetailForm,
-  // CertificateForm,
   ProjectForm,
   LinkForm,
   WorkExperienceForm,
   EducationForm,
 };
+
+// CertificateForm,
+// const CertificateForm = () => {
+//   return <div>CertificatesForm</div>;
+// };
+
+// Added awards, publications, volunteering and references

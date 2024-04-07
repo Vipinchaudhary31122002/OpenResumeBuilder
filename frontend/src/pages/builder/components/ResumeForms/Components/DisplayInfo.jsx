@@ -1,13 +1,24 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
 import Toast from "react-bootstrap/Toast";
+import { useDispatch } from "react-redux";
+
+import {
+  DeleteProjectDetails,
+  DeleteLinkDetails,
+  DeleteEducationDetails,
+  DeleteWorkExperienceDetails,
+  DeleteSkillDetails,
+  DeleteHobbyDetails,
+  DeleteSpokenLanguageDetails,
+} from "src/redux/ResumeSlice";
 
 const DisplayWorkExperience = (props) => {
-  const [show, setShow] = useState(true);
-  const toggleShow = () => setShow(!show);
+  const dispatch = useDispatch();
+  const DeleteData = () =>
+    dispatch(DeleteWorkExperienceDetails(props.workexperience.id));
   return (
     <>
-      <Toast show={show} onClose={toggleShow} bg="primary" className="my-2">
+      <Toast show={true} onClose={DeleteData} bg="primary" className="my-2">
         <Toast.Header>
           <strong className="me-auto">{props.workexperience.company}</strong>
         </Toast.Header>
@@ -17,11 +28,11 @@ const DisplayWorkExperience = (props) => {
 };
 
 const DisplayEducation = (props) => {
-  const [show, setShow] = useState(true);
-  const toggleShow = () => setShow(!show);
+  const dispatch = useDispatch();
+  const DeleteData = () => dispatch(DeleteEducationDetails(props.education.id));
   return (
     <>
-      <Toast show={show} onClose={toggleShow} bg="primary" className="my-2">
+      <Toast show={true} onClose={DeleteData} bg="primary" className="my-2">
         <Toast.Header>
           <strong className="me-auto">{props.education.universityname}</strong>
         </Toast.Header>
@@ -31,13 +42,14 @@ const DisplayEducation = (props) => {
 };
 
 const DisplayProject = (props) => {
-  const [show, setShow] = useState(true);
-  const toggleShow = () => setShow(!show);
+  const dispatch = useDispatch();
+  const DeleteData = () => dispatch(DeleteProjectDetails(props.project.id));
   return (
     <>
-      <Toast show={show} onClose={toggleShow} bg="primary" className="my-2">
+      <Toast show={true} onClose={DeleteData} bg="primary" className="my-2">
         <Toast.Header>
           <strong className="me-auto">{props.project.name}</strong>
+          <br />
         </Toast.Header>
       </Toast>
     </>
@@ -45,11 +57,11 @@ const DisplayProject = (props) => {
 };
 
 const DisplayLink = (props) => {
-  const [show, setShow] = useState(true);
-  const toggleShow = () => setShow(!show);
+  const dispatch = useDispatch();
+  const DeleteData = () => dispatch(DeleteLinkDetails(props.link.id));
   return (
     <>
-      <Toast show={show} onClose={toggleShow} bg="primary" className="my-2">
+      <Toast show={true} onClose={DeleteData} bg="primary" className="my-2">
         <Toast.Header>
           <strong className="me-auto">{props.link.networkname}</strong>
         </Toast.Header>
@@ -59,13 +71,13 @@ const DisplayLink = (props) => {
 };
 
 const DisplaySkill = (props) => {
-  const [show, setShow] = useState(true);
-  const toggleShow = () => setShow(!show);
+  const dispatch = useDispatch();
+  const DeleteData = () => dispatch(DeleteSkillDetails(props.skill.id));
   return (
     <>
-      <Toast show={show} onClose={toggleShow} bg="primary" className="my-2">
+      <Toast show={true} onClose={DeleteData} bg="primary" className="my-2">
         <Toast.Header>
-          <strong className="me-auto">{props.skill}</strong>
+          <strong className="me-auto">{props.skill.skills}</strong>
         </Toast.Header>
       </Toast>
     </>
@@ -73,13 +85,16 @@ const DisplaySkill = (props) => {
 };
 
 const DisplaySpokenLanguage = (props) => {
-  const [show, setShow] = useState(true);
-  const toggleShow = () => setShow(!show);
+  const dispatch = useDispatch();
+  const DeleteData = () =>
+    dispatch(DeleteSpokenLanguageDetails(props.spokenlanguage.id));
   return (
     <>
-      <Toast show={show} onClose={toggleShow} bg="primary" className="my-2">
+      <Toast show={true} onClose={DeleteData} bg="primary" className="my-2">
         <Toast.Header>
-          <strong className="me-auto">{props.spokenlanguage}</strong>
+          <strong className="me-auto">
+            {props.spokenlanguage.spokenlanguage}
+          </strong>
         </Toast.Header>
       </Toast>
     </>
@@ -87,13 +102,13 @@ const DisplaySpokenLanguage = (props) => {
 };
 
 const DisplayHobby = (props) => {
-  const [show, setShow] = useState(true);
-  const toggleShow = () => setShow(!show);
+  const dispatch = useDispatch();
+  const DeleteData = () => dispatch(DeleteHobbyDetails(props.hobby.id));
   return (
     <>
-      <Toast show={show} onClose={toggleShow} bg="primary" className="my-2">
+      <Toast show={true} onClose={DeleteData} bg="primary" className="my-2">
         <Toast.Header>
-          <strong className="me-auto">{props.hobby}</strong>
+          <strong className="me-auto">{props.hobby.hobby}</strong>
         </Toast.Header>
       </Toast>
     </>
