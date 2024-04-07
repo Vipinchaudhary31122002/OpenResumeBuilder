@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 // import { Outlet, useNavigate } from "react-router-dom";
 // import { useState } from "react";
 // import { useEffect } from "react";
@@ -6,6 +5,7 @@ import { Link } from "react-router-dom";
 // import { toast } from "react-toastify";
 // import Modal from "react-bootstrap/Modal";
 import "./HomePage.css";
+import { DisplayLinkButton } from "src/utils/DisplayButton";
 // import axios from "axios";
 const HomePage = () => {
   // const [show, setShow] = useState(false);
@@ -80,13 +80,11 @@ const HomePage = () => {
       <div className="HomePage container-fluid d-flex flex-column justify-content-center align-items-center">
         <span>OpenResumeBuilder</span>
         <div className="d-flex justify-content-center">
-          <Link
-            to="/builder"
-            type="button"
-            className="btn btn-outline-primary m-1"
-          >
-            Get Started
-          </Link>
+          <DisplayLinkButton
+            path="/builder"
+            variant="btn btn-outline-primary"
+            title="Get Started"
+          />
           {/* <Link
             to="/signin"
             type="button"

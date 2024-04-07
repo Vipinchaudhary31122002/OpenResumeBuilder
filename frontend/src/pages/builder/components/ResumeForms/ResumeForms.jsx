@@ -16,9 +16,9 @@ import {
 
 // React Bootstrap imports
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import Stack from "react-bootstrap/Stack";
 
+// function that display notification indicator on error
 const DisplayError = (text) => {
   toast.error(text);
 };
@@ -33,6 +33,7 @@ import {
   DisplayEducation,
   DisplayWorkExperience,
 } from "./Components/DisplayInfo";
+import { DisplayFormButton } from "src/utils/DisplayButton";
 
 const PersonalDetailForm = () => {
   const dispatch = useDispatch();
@@ -193,14 +194,12 @@ const PersonalDetailForm = () => {
               {...register("skills")}
               size="sm"
             />
-            <Button
-              size="sm"
-              className="mx-1"
+            <DisplayFormButton
               variant="outline-primary"
+              title="Add"
+              className="mx-1"
               type="submit"
-            >
-              Add
-            </Button>
+            />
           </Stack>
           {skills.map((skill, index) => (
             <DisplaySkill key={index} skill={skill} />
@@ -218,14 +217,12 @@ const PersonalDetailForm = () => {
               {...register("spokenlanguages")}
               size="sm"
             />
-            <Button
-              size="sm"
-              className="mx-1"
+            <DisplayFormButton
               variant="outline-primary"
+              title="Add"
               type="submit"
-            >
-              Add
-            </Button>
+              className="mx-1"
+            />
           </Stack>
           {spokenlanguages.map((spokenlanguage, index) => (
             <DisplaySpokenLanguage
@@ -246,14 +243,12 @@ const PersonalDetailForm = () => {
               {...register("hobbies")}
               size="sm"
             />
-            <Button
-              size="sm"
-              className="mx-1"
+            <DisplayFormButton
               variant="outline-primary"
+              title="Add"
               type="submit"
-            >
-              Add
-            </Button>
+              className="mx-1"
+            />
           </Stack>
           {hobbies.map((hobby, index) => (
             <DisplayHobby key={index} hobby={hobby} />
@@ -317,9 +312,19 @@ const WorkExperienceForm = () => {
             {...register("summary")}
           />
         </Form.Group>
-        <Button className="my-1" variant="outline-primary" type="submit">
-          Add
-        </Button>
+        <hr />
+        <div className="d-flex justify-content-between ">
+          <DisplayFormButton
+            variant="outline-primary"
+            title="Add"
+            type="submit"
+          />
+          <DisplayFormButton
+            variant="outline-primary"
+            title="Save Changes"
+            type="submit"
+          />
+        </div>
       </form>
       {WorkExperiences.map((workexperience, index) => (
         <DisplayWorkExperience workexperience={workexperience} key={index} />
@@ -379,9 +384,19 @@ const ProjectForm = () => {
             style={{ height: "200px" }}
           />
         </Form.Group>
-        <Button className="my-1" variant="outline-primary" type="submit">
-          Add
-        </Button>
+        <hr />
+        <div className="d-flex justify-content-between">
+          <DisplayFormButton
+            variant="outline-primary"
+            title="Add"
+            type="submit"
+          />
+          <DisplayFormButton
+            variant="outline-primary"
+            title="Save Changes"
+            type="submit"
+          />
+        </div>
       </form>
       {Projects.map((project, index) => (
         <DisplayProject project={project} key={index} />
@@ -432,10 +447,21 @@ const LinkForm = () => {
             {...register("profileurl")}
           />
         </Form.Group>
-        <Button className="my-1" variant="outline-primary" type="submit">
-          Add
-        </Button>
+        <hr />
+        <div className="d-flex justify-content-between">
+          <DisplayFormButton
+            variant="outline-primary"
+            title="Add"
+            type="submit"
+          />
+          <DisplayFormButton
+            variant="outline-primary"
+            title="Save Changes"
+            type="submit"
+          />
+        </div>
       </form>
+
       {Links?.map((link, index) => (
         <DisplayLink link={link} key={index} />
       ))}
@@ -505,10 +531,21 @@ const EducationForm = () => {
             style={{ height: "200px" }}
           />
         </Form.Group>
-        <Button className="my-1" variant="outline-primary" type="submit">
-          Add
-        </Button>
+        <hr />
+        <div className="d-flex justify-content-between">
+          <DisplayFormButton
+            variant="outline-primary"
+            title="Add"
+            type="submit"
+          />
+          <DisplayFormButton
+            variant="outline-primary"
+            title="Save Changes"
+            type="submit"
+          />
+        </div>
       </form>
+
       {Educations.map((education, index) => (
         <DisplayEducation education={education} key={index} />
       ))}

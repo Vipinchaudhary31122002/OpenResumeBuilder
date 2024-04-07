@@ -1,12 +1,8 @@
 // import { Suspense, lazy } from "react";
-import { Link } from "react-router-dom";
-import { FaHome } from "react-icons/fa";
-import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import {
   PersonalDetailForm,
-  // CertificateForm,
   ProjectForm,
   LinkForm,
   WorkExperienceForm,
@@ -18,6 +14,11 @@ import {
 // import LoadingIndicator from "src/utils/LoadingIndicator";
 
 import "./Builder.css";
+import {
+  DisplayBuilderFormButton,
+  DisplayButton,
+  DisplayHomeIconButton,
+} from "src/utils/DisplayButton.jsx";
 const Builder = () => {
   const [show, setShow] = useState(false);
   const [offcanvasTitle, setCanvasTitle] = useState("");
@@ -57,11 +58,6 @@ const Builder = () => {
       title: "Education Details",
       content: <EducationForm />,
     },
-    // {
-    //   id: 6,
-    //   title: "Certificates",
-    //   content: <CertificateForm />,
-    // },
   ];
   return (
     <>
@@ -83,22 +79,17 @@ const Builder = () => {
       <div className="BuilderPage container-fluid">
         <div className="ResumeForm">
           <div className="d-flex justify-content-between m-1">
-            <Link to="/" className="btn btn-outline-primary">
-              <FaHome />
-            </Link>
-            <Button variant="outline-primary">Download Pdf</Button>
+            <DisplayHomeIconButton path="/" variant="btn btn-outline-primary" />
+            <DisplayButton variant="outline-primary" title="Download Pdf" />
           </div>
           <div className="ButtonContainer container-fluid d-flex flex-column gap-2">
             {ResumeFormTitleAndComponents.map((element) => (
-              <Button
-                onClick={() => {
-                  handleShow(element.title, element.content);
-                }}
+              <DisplayBuilderFormButton
+                function={() => handleShow(element.title, element.content)}
                 key={element.id}
                 variant="outline-primary"
-              >
-                {element.title}
-              </Button>
+                title={element.title}
+              />
             ))}
           </div>
         </div>
