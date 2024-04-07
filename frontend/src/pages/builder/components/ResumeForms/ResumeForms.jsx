@@ -1,7 +1,7 @@
 // import { useEffect, useCallback } from "react";
 import { useForm } from "react-hook-form";
 // import { debounce } from "lodash";
-
+import { toast } from "react-toastify";
 // Redux imports
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -19,6 +19,10 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Stack from "react-bootstrap/Stack";
 
+const DisplayError = (text) => {
+  toast.error(text);
+};
+
 // Display components imports
 import {
   DisplayLink,
@@ -32,13 +36,31 @@ import {
 
 const PersonalDetailForm = () => {
   const dispatch = useDispatch();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, resetField } = useForm();
   const SubmitSkills = (data) => {
-    dispatch(SetSkillDetails(data.skills));
+    if (data.skills.length == 0) {
+      DisplayError("Skill is required");
+    } else {
+      dispatch(SetSkillDetails(data.skills));
+      resetField("skills");
+    }
   };
-  const SubmitLanguages = (data) =>
-    dispatch(SetSpokenLanguageDetails(data.spokenlanguages));
-  const SubmitHobbies = (data) => dispatch(SetHobbyDetails(data.hobbies));
+  const SubmitLanguages = (data) => {
+    if (data.spokenlanguages.length == 0) {
+      DisplayError("Language is required");
+    } else {
+      dispatch(SetSpokenLanguageDetails(data.spokenlanguages));
+      resetField("spokenlanguages");
+    }
+  };
+  const SubmitHobbies = (data) => {
+    if (data.hobbies.length == 0) {
+      DisplayError("Hobby is required");
+    } else {
+      dispatch(SetHobbyDetails(data.hobbies));
+      resetField("hobbies");
+    }
+  };
   const {
     // fullname,
     // headline,
@@ -160,6 +182,7 @@ const PersonalDetailForm = () => {
           {...register("summary")}
         />
       </Form.Group>
+      <hr />
       <form onSubmit={handleSubmit(SubmitSkills)}>
         <Form.Group className="mb-1">
           <Form.Label className="mb-0">Skills</Form.Label>
@@ -184,6 +207,7 @@ const PersonalDetailForm = () => {
           ))}
         </Form.Group>
       </form>
+      <hr />
       <form onSubmit={handleSubmit(SubmitLanguages)}>
         <Form.Group className="mb-1">
           <Form.Label className="mb-0">Spoken languages</Form.Label>
@@ -211,6 +235,7 @@ const PersonalDetailForm = () => {
           ))}
         </Form.Group>
       </form>
+      <hr />
       <form onSubmit={handleSubmit(SubmitHobbies)}>
         <Form.Group className="mb-1">
           <Form.Label className="mb-0">Hobbies</Form.Label>
@@ -241,8 +266,15 @@ const PersonalDetailForm = () => {
 
 const WorkExperienceForm = () => {
   const dispatch = useDispatch();
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => dispatch(SetWorkExperienceDetails(data));
+  const { register, handleSubmit, reset } = useForm();
+  const onSubmit = (data) => {
+    if (data.company.length == 0) {
+      DisplayError("Company name is required");
+    } else {
+      dispatch(SetWorkExperienceDetails(data));
+      reset();
+    }
+  };
   const WorkExperiences = useSelector(
     (state) => state.resume.initialresume.workexperiences
   );
@@ -298,8 +330,15 @@ const WorkExperienceForm = () => {
 
 const ProjectForm = () => {
   const dispatch = useDispatch();
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => dispatch(SetProjectDetails(data));
+  const { register, handleSubmit, reset } = useForm();
+  const onSubmit = (data) => {
+    if (data.name.length == 0) {
+      DisplayError("Project name is required");
+    } else {
+      dispatch(SetProjectDetails(data));
+      reset();
+    }
+  };
   const Projects = useSelector((state) => state.resume.initialresume.projects);
   return (
     <>
@@ -353,8 +392,15 @@ const ProjectForm = () => {
 
 const LinkForm = () => {
   const dispatch = useDispatch();
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => dispatch(SetLinkDetails(data));
+  const { register, handleSubmit, reset } = useForm();
+  const onSubmit = (data) => {
+    if (data.networkname.length == 0) {
+      DisplayError("Network name is required");
+    } else {
+      dispatch(SetLinkDetails(data));
+      reset();
+    }
+  };
   const Links = useSelector((state) => state.resume.initialresume.links);
   return (
     <>
@@ -399,8 +445,15 @@ const LinkForm = () => {
 
 const EducationForm = () => {
   const dispatch = useDispatch();
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => dispatch(SetEducationDetails(data));
+  const { register, handleSubmit, reset } = useForm();
+  const onSubmit = (data) => {
+    if (data.universityname.length == 0) {
+      DisplayError("University name is required");
+    } else {
+      dispatch(SetEducationDetails(data));
+      reset();
+    }
+  };
   const Educations = useSelector(
     (state) => state.resume.initialresume.educations
   );

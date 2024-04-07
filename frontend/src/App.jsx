@@ -19,7 +19,7 @@ const Builder = lazy(() => import("./pages/builder/Builder"));
 // } from "./pages/home/components/userforms/Userforms";
 import ErrorPage from "./pages/error/ErrorPage";
 import LoadingIndicator from "./utils/LoadingIndicator";
-// import NotificationIndicator from "src/utils/NotificationIndicator";
+import NotificationIndicator from "src/utils/NotificationIndicator";
 
 // importing stylesheet
 import "./App.css";
@@ -27,7 +27,7 @@ import "./App.css";
 function App() {
   return (
     <>
-      {/* <NotificationIndicator /> */}
+      <NotificationIndicator />
       <Suspense fallback={<LoadingIndicator />}>
         <Routes>
           {/* homepage route */}
