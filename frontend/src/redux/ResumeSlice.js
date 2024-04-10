@@ -30,7 +30,7 @@ const initialState = {
 };
 
 const Personal = {
-  UpdatePersonalDetails: (state, action) => {
+  UpdatePersonal: (state, action) => {
     const {
       fullname,
       headline,
@@ -54,13 +54,13 @@ const Personal = {
 };
 
 const Skills = {
-  SetSkillDetails: (state, action) => {
+  CreateSkill: (state, action) => {
     state.initialresume.personal.skills.push({
       id: nanoid(),
       skills: action.payload,
     });
   },
-  DeleteSkillDetails: (state, action) => {
+  DeleteSkill: (state, action) => {
     state.initialresume.personal.skills = deleteObjectById(
       state.initialresume.personal.skills,
       action.payload
@@ -69,13 +69,13 @@ const Skills = {
 };
 
 const spokenlanguages = {
-  SetSpokenLanguageDetails: (state, action) => {
+  CreateSpokenLanguage: (state, action) => {
     state.initialresume.personal.spokenlanguages.push({
       id: nanoid(),
       spokenlanguage: action.payload,
     });
   },
-  DeleteSpokenLanguageDetails: (state, action) => {
+  DeleteSpokenLanguage: (state, action) => {
     state.initialresume.personal.spokenlanguages = deleteObjectById(
       state.initialresume.personal.spokenlanguages,
       action.payload
@@ -84,13 +84,13 @@ const spokenlanguages = {
 };
 
 const Hobbies = {
-  SetHobbyDetails: (state, action) => {
+  CreateHobby: (state, action) => {
     state.initialresume.personal.hobbies.push({
       id: nanoid(),
       hobby: action.payload,
     });
   },
-  DeleteHobbyDetails: (state, action) => {
+  DeleteHobby: (state, action) => {
     state.initialresume.personal.hobbies = deleteObjectById(
       state.initialresume.personal.hobbies,
       action.payload
@@ -99,13 +99,13 @@ const Hobbies = {
 };
 
 const WorkExperiences = {
-  SetWorkExperienceDetails: (state, action) => {
+  CreateWorkExperience: (state, action) => {
     state.initialresume.workexperiences.push({
       id: nanoid(),
       ...action.payload,
     });
   },
-  DeleteWorkExperienceDetails: (state, action) => {
+  DeleteWorkExperience: (state, action) => {
     state.initialresume.workexperiences = deleteObjectById(
       state.initialresume.workexperiences,
       action.payload
@@ -114,13 +114,13 @@ const WorkExperiences = {
 };
 
 const Educations = {
-  SetEducationDetails: (state, action) => {
+  CreateEducation: (state, action) => {
     state.initialresume.educations.push({
       id: nanoid(),
       ...action.payload,
     });
   },
-  DeleteEducationDetails: (state, action) => {
+  DeleteEducation: (state, action) => {
     state.initialresume.educations = deleteObjectById(
       state.initialresume.educations,
       action.payload
@@ -129,13 +129,13 @@ const Educations = {
 };
 
 const Projects = {
-  SetProjectDetails: (state, action) => {
+  CreateProject: (state, action) => {
     state.initialresume.projects.push({
       id: nanoid(),
       ...action.payload,
     });
   },
-  DeleteProjectDetails: (state, action) => {
+  DeleteProject: (state, action) => {
     state.initialresume.projects = deleteObjectById(
       state.initialresume.projects,
       action.payload
@@ -144,13 +144,13 @@ const Projects = {
 };
 
 const Links = {
-  SetLinkDetails: (state, action) => {
+  CreateLink: (state, action) => {
     state.initialresume.links.push({
       id: nanoid(),
       ...action.payload,
     });
   },
-  DeleteLinkDetails: (state, action) => {
+  DeleteLink: (state, action) => {
     state.initialresume.links = deleteObjectById(
       state.initialresume.links,
       action.payload
@@ -174,23 +174,24 @@ export const ResumeSlice = createSlice({
 });
 
 export const {
-  // Set data actions
-  UpdatePersonalDetails,
-  SetSkillDetails,
-  SetProjectDetails,
-  SetEducationDetails,
-  SetWorkExperienceDetails,
-  SetLinkDetails,
-  SetSpokenLanguageDetails,
-  SetHobbyDetails,
+  // Update data actions
+  UpdatePersonal,
+  // Create data actions
+  CreateSkill,
+  CreateProject,
+  CreateEducation,
+  CreateWorkExperience,
+  CreateLink,
+  CreateSpokenLanguage,
+  CreateHobby,
   // Delete data actions
-  DeleteProjectDetails,
-  DeleteLinkDetails,
-  DeleteEducationDetails,
-  DeleteWorkExperienceDetails,
-  DeleteSkillDetails,
-  DeleteSpokenLanguageDetails,
-  DeleteHobbyDetails,
+  DeleteProject,
+  DeleteLink,
+  DeleteEducation,
+  DeleteWorkExperience,
+  DeleteSkill,
+  DeleteSpokenLanguage,
+  DeleteHobby,
 } = ResumeSlice.actions;
 
 export default ResumeSlice.reducer;

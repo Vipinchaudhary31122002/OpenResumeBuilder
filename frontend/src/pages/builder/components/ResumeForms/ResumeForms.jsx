@@ -3,14 +3,14 @@ import { toast } from "react-toastify";
 // Redux imports
 import { useSelector, useDispatch } from "react-redux";
 import {
-  UpdatePersonalDetails,
-  SetProjectDetails,
-  SetWorkExperienceDetails,
-  SetEducationDetails,
-  SetLinkDetails,
-  SetSkillDetails,
-  SetSpokenLanguageDetails,
-  SetHobbyDetails,
+  UpdatePersonal,
+  CreateProject,
+  CreateWorkExperience,
+  CreateEducation,
+  CreateLink,
+  CreateSkill,
+  CreateSpokenLanguage,
+  CreateHobby,
 } from "src/redux/ResumeSlice";
 
 // React Bootstrap imports
@@ -36,10 +36,10 @@ import { DisplayFormButton } from "src/utils/DisplayButton";
 const PersonalDetailForm = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit, resetField } = useForm();
-  const UpdatePersonal = (data) => {
+  const SubmitPersonal = (data) => {
     if (data.fullname == 0) DisplayError("Fullname is required");
     else {
-      dispatch(UpdatePersonalDetails(data));
+      dispatch(UpdatePersonal(data));
       DisplaySuccess("Personal Details Saved");
     }
   };
@@ -47,7 +47,7 @@ const PersonalDetailForm = () => {
     if (data.skills.length == 0) {
       DisplayError("Skill is required");
     } else {
-      dispatch(SetSkillDetails(data.skills));
+      dispatch(CreateSkill(data.skills));
       resetField("skills");
     }
   };
@@ -55,7 +55,7 @@ const PersonalDetailForm = () => {
     if (data.spokenlanguages.length == 0) {
       DisplayError("Language is required");
     } else {
-      dispatch(SetSpokenLanguageDetails(data.spokenlanguages));
+      dispatch(CreateSpokenLanguage(data.spokenlanguages));
       resetField("spokenlanguages");
     }
   };
@@ -63,7 +63,7 @@ const PersonalDetailForm = () => {
     if (data.hobbies.length == 0) {
       DisplayError("Hobby is required");
     } else {
-      dispatch(SetHobbyDetails(data.hobbies));
+      dispatch(CreateHobby(data.hobbies));
       resetField("hobbies");
     }
   };
@@ -82,7 +82,7 @@ const PersonalDetailForm = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(UpdatePersonal)}>
+      <form onSubmit={handleSubmit(SubmitPersonal)}>
         <Form.Group className="mb-1">
           <Form.Label className="mb-0">Fullname</Form.Label>
           <Form.Control
@@ -244,7 +244,7 @@ const WorkExperienceForm = () => {
     if (data.company.length == 0) {
       DisplayError("Company name is required");
     } else {
-      dispatch(SetWorkExperienceDetails(data));
+      dispatch(CreateWorkExperience(data));
       reset();
     }
   };
@@ -318,7 +318,7 @@ const ProjectForm = () => {
     if (data.name.length == 0) {
       DisplayError("Project name is required");
     } else {
-      dispatch(SetProjectDetails(data));
+      dispatch(CreateProject(data));
       reset();
     }
   };
@@ -390,7 +390,7 @@ const LinkForm = () => {
     if (data.networkname.length == 0) {
       DisplayError("Network name is required");
     } else {
-      dispatch(SetLinkDetails(data));
+      dispatch(CreateLink(data));
       reset();
     }
   };
@@ -454,7 +454,7 @@ const EducationForm = () => {
     if (data.universityname.length == 0) {
       DisplayError("University name is required");
     } else {
-      dispatch(SetEducationDetails(data));
+      dispatch(CreateEducation(data));
       reset();
     }
   };
@@ -538,4 +538,3 @@ export {
   WorkExperienceForm,
   EducationForm,
 };
-

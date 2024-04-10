@@ -3,19 +3,19 @@ import Toast from "react-bootstrap/Toast";
 import { useDispatch } from "react-redux";
 
 import {
-  DeleteProjectDetails,
-  DeleteLinkDetails,
-  DeleteEducationDetails,
-  DeleteWorkExperienceDetails,
-  DeleteSkillDetails,
-  DeleteHobbyDetails,
-  DeleteSpokenLanguageDetails,
+  DeleteProject,
+  DeleteLink,
+  DeleteEducation,
+  DeleteWorkExperience,
+  DeleteSkill,
+  DeleteHobby,
+  DeleteSpokenLanguage,
 } from "src/redux/ResumeSlice";
 
 const DisplayWorkExperience = (props) => {
   const dispatch = useDispatch();
   const DeleteData = () =>
-    dispatch(DeleteWorkExperienceDetails(props.workexperience.id));
+    dispatch(DeleteWorkExperience(props.workexperience.id));
   return (
     <>
       <Toast show={true} onClose={DeleteData} bg="primary" className="my-2">
@@ -35,7 +35,7 @@ const DisplayWorkExperience = (props) => {
 
 const DisplayEducation = (props) => {
   const dispatch = useDispatch();
-  const DeleteData = () => dispatch(DeleteEducationDetails(props.education.id));
+  const DeleteData = () => dispatch(DeleteEducation(props.education.id));
   return (
     <>
       <Toast show={true} onClose={DeleteData} bg="primary" className="my-2">
@@ -49,7 +49,7 @@ const DisplayEducation = (props) => {
 
 const DisplayProject = (props) => {
   const dispatch = useDispatch();
-  const DeleteData = () => dispatch(DeleteProjectDetails(props.project.id));
+  const DeleteData = () => dispatch(DeleteProject(props.project.id));
   return (
     <>
       <Toast show={true} onClose={DeleteData} bg="primary" className="my-2">
@@ -64,7 +64,7 @@ const DisplayProject = (props) => {
 
 const DisplayLink = (props) => {
   const dispatch = useDispatch();
-  const DeleteData = () => dispatch(DeleteLinkDetails(props.link.id));
+  const DeleteData = () => dispatch(DeleteLink(props.link.id));
   return (
     <>
       <Toast show={true} onClose={DeleteData} bg="primary" className="my-2">
@@ -78,7 +78,7 @@ const DisplayLink = (props) => {
 
 const DisplaySkill = (props) => {
   const dispatch = useDispatch();
-  const DeleteData = () => dispatch(DeleteSkillDetails(props.skill.id));
+  const DeleteData = () => dispatch(DeleteSkill(props.skill.id));
   return (
     <>
       <Toast show={true} onClose={DeleteData} bg="primary" className="my-2">
@@ -93,7 +93,7 @@ const DisplaySkill = (props) => {
 const DisplaySpokenLanguage = (props) => {
   const dispatch = useDispatch();
   const DeleteData = () =>
-    dispatch(DeleteSpokenLanguageDetails(props.spokenlanguage.id));
+    dispatch(DeleteSpokenLanguage(props.spokenlanguage.id));
   return (
     <>
       <Toast show={true} onClose={DeleteData} bg="primary" className="my-2">
@@ -109,7 +109,7 @@ const DisplaySpokenLanguage = (props) => {
 
 const DisplayHobby = (props) => {
   const dispatch = useDispatch();
-  const DeleteData = () => dispatch(DeleteHobbyDetails(props.hobby.id));
+  const DeleteData = () => dispatch(DeleteHobby(props.hobby.id));
   return (
     <>
       <Toast show={true} onClose={DeleteData} bg="primary" className="my-2">
