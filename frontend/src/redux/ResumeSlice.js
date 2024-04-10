@@ -1,6 +1,6 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
-import { deleteObjectById } from "./ReducerFunctions";
+import { deleteObjectById } from "./ResumeSliceFunctions";
 
 const initialState = {
   initialresume: {
@@ -21,7 +21,36 @@ const initialState = {
     educations: [],
     projects: [],
   },
-  resumes: [],
+  SelectedDispalyInfoID: {
+    SelectedLinkID: "",
+    SelectedEducationID: "",
+    SelectedProjectID: "",
+    SelectedWorkExperienceID: "",
+  },
+};
+
+const Personal = {
+  UpdatePersonalDetails: (state, action) => {
+    const {
+      fullname,
+      headline,
+      email,
+      phonenumber,
+      address,
+      website,
+      summary,
+    } = action.payload;
+    state.initialresume.personal = {
+      ...state.initialresume.personal,
+      ...(fullname && { fullname }),
+      ...(headline && { headline }),
+      ...(email && { email }),
+      ...(phonenumber && { phonenumber }),
+      ...(address && { address }),
+      ...(website && { website }),
+      ...(summary && { summary }),
+    };
+  },
 };
 
 const Skills = {
@@ -133,6 +162,7 @@ export const ResumeSlice = createSlice({
   name: "resume",
   initialState,
   reducers: {
+    ...Personal,
     ...Skills,
     ...Hobbies,
     ...spokenlanguages,
@@ -145,6 +175,7 @@ export const ResumeSlice = createSlice({
 
 export const {
   // Set data actions
+  UpdatePersonalDetails,
   SetSkillDetails,
   SetProjectDetails,
   SetEducationDetails,

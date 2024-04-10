@@ -1,10 +1,9 @@
-// import { useEffect, useCallback } from "react";
 import { useForm } from "react-hook-form";
-// import { debounce } from "lodash";
 import { toast } from "react-toastify";
 // Redux imports
 import { useSelector, useDispatch } from "react-redux";
 import {
+  UpdatePersonalDetails,
   SetProjectDetails,
   SetWorkExperienceDetails,
   SetEducationDetails,
@@ -19,9 +18,8 @@ import Form from "react-bootstrap/Form";
 import Stack from "react-bootstrap/Stack";
 
 // function that display notification indicator on error
-const DisplayError = (text) => {
-  toast.error(text);
-};
+const DisplayError = (text) => toast.error(text);
+const DisplaySuccess = (text) => toast.success(text);
 
 // Display components imports
 import {
@@ -38,6 +36,13 @@ import { DisplayFormButton } from "src/utils/DisplayButton";
 const PersonalDetailForm = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit, resetField } = useForm();
+  const UpdatePersonal = (data) => {
+    if (data.fullname == 0) DisplayError("Fullname is required");
+    else {
+      dispatch(UpdatePersonalDetails(data));
+      DisplaySuccess("Personal Details Saved");
+    }
+  };
   const SubmitSkills = (data) => {
     if (data.skills.length == 0) {
       DisplayError("Skill is required");
@@ -63,126 +68,99 @@ const PersonalDetailForm = () => {
     }
   };
   const {
-    // fullname,
-    // headline,
-    // email,
-    // phonenumber,
-    // address,
-    // website,
-    // summary,
+    fullname,
+    headline,
+    email,
+    phonenumber,
+    address,
+    website,
+    summary,
     skills,
     spokenlanguages,
     hobbies,
   } = useSelector((state) => state.resume.initialresume.personal);
-  // const [
-  //   watchfullname,
-  //   watchheadline,
-  //   watchemail,
-  //   watchphonenumber,
-  //   watchaddress,
-  // ] = watch(["fullname", "headline", "email", "phonenumber", "address"]);
-  // // eslint-disable-next-line react-hooks/exhaustive-deps
-  // const debouncedAction = useCallback(
-  //   debounce((data) => {
-  //     dispatch(SetPersonalDetails(data));
-  //   }, 100),
-  //   [dispatch]
-  // );
-  // useEffect(() => {
-  //   debouncedAction({
-  //     fullname: watchfullname,
-  //     headline: watchheadline,
-  //     email: watchemail,
-  //     phonenumber: watchphonenumber,
-  //     address: watchaddress,
-  //   });
-
-  //   // Cleanup function for debounced action
-  //   return () => {
-  //     debouncedAction.cancel();
-  //   };
-  // }, [
-  //   debouncedAction,
-  //   watchfullname,
-  //   watchheadline,
-  //   watchemail,
-  //   watchphonenumber,
-  //   watchaddress,
-  // ]);
 
   return (
     <>
-      <Form.Group className="mb-1">
-        <Form.Label className="mb-0">Fullname</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Jhon Doe"
-          // value={fullname}
-          {...register("fullname")}
-          size="sm"
+      <form onSubmit={handleSubmit(UpdatePersonal)}>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Fullname</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Jhon Doe"
+            defaultValue={fullname}
+            {...register("fullname")}
+            size="sm"
+          />
+        </Form.Group>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Headline</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Software Developer"
+            defaultValue={headline}
+            {...register("headline")}
+            size="sm"
+          />
+        </Form.Group>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Email Address</Form.Label>
+          <Form.Control
+            type="email"
+            placeholder="JhonDoe@gmail.com"
+            defaultValue={email}
+            {...register("email")}
+            size="sm"
+          />
+        </Form.Group>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Phone Number</Form.Label>
+          <Form.Control
+            type="tel"
+            placeholder="+91 1234567890"
+            defaultValue={phonenumber}
+            size="sm"
+            {...register("phonenumber")}
+          />
+        </Form.Group>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Address</Form.Label>
+          <Form.Control
+            type="text"
+            defaultValue={address}
+            placeholder="City State Country"
+            size="sm"
+            {...register("address")}
+          />
+        </Form.Group>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Website URL</Form.Label>
+          <Form.Control
+            type="text"
+            defaultValue={website}
+            placeholder="jhondoe.com"
+            size="sm"
+            {...register("website")}
+          />
+        </Form.Group>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Summary</Form.Label>
+          <Form.Control
+            as="textarea"
+            placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+            size="sm"
+            defaultValue={summary}
+            style={{ height: "200px" }}
+            {...register("summary")}
+          />
+        </Form.Group>
+        <DisplayFormButton
+          variant="outline-primary"
+          title="Save Changes"
+          className="my-1"
+          type="submit"
         />
-      </Form.Group>
-      <Form.Group className="mb-1">
-        <Form.Label className="mb-0">Headline</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Software Developer"
-          // value={headline}
-          {...register("headline")}
-          size="sm"
-        />
-      </Form.Group>
-      <Form.Group className="mb-1">
-        <Form.Label className="mb-0">Email Address</Form.Label>
-        <Form.Control
-          type="email"
-          placeholder="JhonDoe@gmail.com"
-          // value={email}
-          {...register("email")}
-          size="sm"
-        />
-      </Form.Group>
-      <Form.Group className="mb-1">
-        <Form.Label className="mb-0">Phone Number</Form.Label>
-        <Form.Control
-          type="tel"
-          placeholder="+91 1234567890"
-          // value={phonenumber}
-          size="sm"
-          {...register("phonenumber")}
-        />
-      </Form.Group>
-      <Form.Group className="mb-1">
-        <Form.Label className="mb-0">Address</Form.Label>
-        <Form.Control
-          type="text"
-          // value={address}
-          placeholder="City State Country"
-          size="sm"
-          {...register("address")}
-        />
-      </Form.Group>
-      <Form.Group className="mb-1">
-        <Form.Label className="mb-0">Website URL</Form.Label>
-        <Form.Control
-          type="text"
-          // value={website}
-          placeholder="jhondoe.com"
-          size="sm"
-          {...register("website")}
-        />
-      </Form.Group>
-      <Form.Group className="mb-1">
-        <Form.Label className="mb-0">Summary</Form.Label>
-        <Form.Control
-          as="textarea"
-          placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-          size="sm"
-          // value={summary}
-          style={{ height: "200px" }}
-          {...register("summary")}
-        />
-      </Form.Group>
+      </form>
       <hr />
       <form onSubmit={handleSubmit(SubmitSkills)}>
         <Form.Group className="mb-1">
@@ -262,7 +240,7 @@ const PersonalDetailForm = () => {
 const WorkExperienceForm = () => {
   const dispatch = useDispatch();
   const { register, handleSubmit, reset } = useForm();
-  const onSubmit = (data) => {
+  const Add = (data) => {
     if (data.company.length == 0) {
       DisplayError("Company name is required");
     } else {
@@ -275,7 +253,7 @@ const WorkExperienceForm = () => {
   );
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(Add)}>
         <Form.Group className="mb-1">
           <Form.Label className="mb-0">Company name</Form.Label>
           <Form.Control
@@ -561,9 +539,3 @@ export {
   EducationForm,
 };
 
-// CertificateForm,
-// const CertificateForm = () => {
-//   return <div>CertificatesForm</div>;
-// };
-
-// Added awards, publications, volunteering and references

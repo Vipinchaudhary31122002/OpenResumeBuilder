@@ -20,7 +20,13 @@ const DisplayWorkExperience = (props) => {
     <>
       <Toast show={true} onClose={DeleteData} bg="primary" className="my-2">
         <Toast.Header>
-          <strong className="me-auto">{props.workexperience.company}</strong>
+          <strong
+            className="me-auto"
+            onClick={() => alert("Click is working")}
+            style={{ cursor: "pointer" }}
+          >
+            {props.workexperience.company}
+          </strong>
         </Toast.Header>
       </Toast>
     </>
