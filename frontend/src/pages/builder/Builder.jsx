@@ -2,11 +2,11 @@
 import { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import {
-  // PersonalDetailForm,
-  // ProjectForm,
+  PersonalDetailForm,
+  ProjectForm,
   LinkForm,
-  // WorkExperienceForm,
-  // EducationForm,
+  WorkExperienceForm,
+  EducationForm,
 } from "./components/ResumeForms/ResumeForms.jsx";
 
 // Lazy-loaded components
@@ -33,31 +33,31 @@ const Builder = () => {
   };
 
   const ResumeFormTitleAndComponents = [
-    // {
-    //   id: 1,
-    //   title: "Personal Details",
-    //   content: <PersonalDetailForm />,
-    // },
-    // {
-    //   id: 2,
-    //   title: "Project Details",
-    //   content: <ProjectForm />,
-    // },
+    {
+      id: 1,
+      title: "Personal Details",
+      content: <PersonalDetailForm />,
+    },
+    {
+      id: 2,
+      title: "Project Details",
+      content: <ProjectForm />,
+    },
     {
       id: 3,
       title: "Links",
       content: <LinkForm />,
     },
-    // {
-    //   id: 4,
-    //   title: "Work Experience Details",
-    //   content: <WorkExperienceForm />,
-    // },
-    // {
-    //   id: 5,
-    //   title: "Education Details",
-    //   content: <EducationForm />,
-    // },
+    {
+      id: 4,
+      title: "Work Experience Details",
+      content: <WorkExperienceForm />,
+    },
+    {
+      id: 5,
+      title: "Education Details",
+      content: <EducationForm />,
+    },
   ];
   return (
     <>
