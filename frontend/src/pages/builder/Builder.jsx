@@ -1,68 +1,68 @@
-// import { Suspense, lazy } from "react";
-import { useState } from "react";
-import Offcanvas from "react-bootstrap/Offcanvas";
-import {
-  PersonalDetailForm,
-  ProjectForm,
-  LinkForm,
-  WorkExperienceForm,
-  EducationForm,
-} from "./components/ResumeForms/ResumeForms.jsx";
+import { Suspense, lazy } from "react";
+// import { useState } from "react";
+// import Offcanvas from "react-bootstrap/Offcanvas";
+// import {
+//   PersonalDetailForm,
+//   ProjectForm,
+//   LinkForm,
+//   WorkExperienceForm,
+//   EducationForm,
+// } from "./components/ResumeForms/ResumeForms.jsx";
 
 // Lazy-loaded components
-// const PdfCanvas = lazy(() => import("./components/PdfCanvas/PdfCanvas"));
-// import LoadingIndicator from "src/utils/LoadingIndicator";
+const PdfCanvas = lazy(() => import("./components/PdfCanvas/PdfCanvas"));
+import LoadingIndicator from "src/utils/LoadingIndicator";
 
 import "./Builder.css";
-import {
-  DisplayBuilderFormButton,
-  DisplayButton,
-  DisplayHomeIconButton,
-} from "src/utils/DisplayButton.jsx";
+// import {
+//   DisplayBuilderFormButton,
+//   DisplayButton,
+//   DisplayHomeIconButton,
+// } from "src/utils/DisplayButton.jsx";
 const Builder = () => {
-  const [show, setShow] = useState(false);
-  const [offcanvasTitle, setCanvasTitle] = useState("");
-  const [offcanvasContent, setCanvasContent] = useState("");
-  const handleClose = () => {
-    setShow(false);
-  };
-  const handleShow = (title, content) => {
-    setShow(true);
-    setCanvasTitle(title);
-    setCanvasContent(content);
-  };
+  // const [show, setShow] = useState(false);
+  // const [offcanvasTitle, setCanvasTitle] = useState("");
+  // const [offcanvasContent, setCanvasContent] = useState("");
+  // const handleClose = () => {
+  //   setShow(false);
+  // };
+  // const handleShow = (title, content) => {
+  //   setShow(true);
+  //   setCanvasTitle(title);
+  //   setCanvasContent(content);
+  // };
 
-  const ResumeFormTitleAndComponents = [
-    {
-      id: 1,
-      title: "Personal Details",
-      content: <PersonalDetailForm />,
-    },
-    {
-      id: 2,
-      title: "Project Details",
-      content: <ProjectForm />,
-    },
-    {
-      id: 3,
-      title: "Links",
-      content: <LinkForm />,
-    },
-    {
-      id: 4,
-      title: "Work Experience Details",
-      content: <WorkExperienceForm />,
-    },
-    {
-      id: 5,
-      title: "Education Details",
-      content: <EducationForm />,
-    },
-  ];
+  // const ResumeFormTitleAndComponents = [
+  //   {
+  //     id: 1,
+  //     title: "Personal Details",
+  //     content: <PersonalDetailForm />,
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Project Details",
+  //     content: <ProjectForm />,
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Links",
+  //     content: <LinkForm />,
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "Work Experience Details",
+  //     content: <WorkExperienceForm />,
+  //   },
+  //   {
+  //     id: 5,
+  //     title: "Education Details",
+  //     content: <EducationForm />,
+  //   },
+  // ];
   return (
     <>
       {/* offcanvas */}
-      <Offcanvas
+      {/* <Offcanvas
         show={show}
         onHide={handleClose}
         backdrop={false}
@@ -75,9 +75,9 @@ const Builder = () => {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>{offcanvasContent}</Offcanvas.Body>
-      </Offcanvas>
+      </Offcanvas> */}
       <div className="BuilderPage container-fluid">
-        <div className="ResumeForm">
+        {/* <div className="ResumeForm">
           <div className="d-flex justify-content-between m-1">
             <DisplayHomeIconButton path="/" variant="btn btn-outline-primary" />
             <DisplayButton variant="outline-primary" title="Download Pdf" />
@@ -92,11 +92,11 @@ const Builder = () => {
               />
             ))}
           </div>
-        </div>
+        </div> */}
         <div className="PdfCanvas">
-          {/* <Suspense fallback={<LoadingIndicator />}>
+          <Suspense fallback={<LoadingIndicator />}>
             <PdfCanvas />
-          </Suspense> */}
+          </Suspense>
         </div>
       </div>
     </>

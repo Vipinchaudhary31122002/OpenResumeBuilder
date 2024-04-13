@@ -20,5 +20,6 @@ export default defineConfig({
   // chunking file size
   build: {
     chunkSizeWarningLimit: 2048,
+    target: "esnext", // Or a specific ES version like 'es2022'
   },
 });
