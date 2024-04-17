@@ -77,7 +77,7 @@ const HomePage = () => {
           </Link>
         </Modal.Footer>
       </Modal> */}
-      <div className="HomePage container-fluid d-flex flex-column justify-content-center align-items-center">
+      <div id = "HomePage" className="container-fluid d-flex flex-column justify-content-center align-items-center">
         <span>OpenResumeBuilder</span>
         <div className="d-flex justify-content-center">
           <DisplayLinkButton
