@@ -111,6 +111,9 @@ const WorkExperiences = {
       action.payload
     );
   },
+  SetSelectedWorkExperienceID: (state, action) => {
+    state.SelectedDispalyInfoID.SelectedWorkExperienceID = action.payload;
+  },
 };
 
 const Educations = {
@@ -125,6 +128,9 @@ const Educations = {
       state.initialresume.educations,
       action.payload
     );
+  },
+  SetSelectedEducationID: (state, action) => {
+    state.SelectedDispalyInfoID.SelectedEducationID = action.payload;
   },
 };
 
@@ -141,6 +147,9 @@ const Projects = {
       action.payload
     );
   },
+  SetSelectedProjectID: (state, action) => {
+    state.SelectedDispalyInfoID.SelectedProjectID = action.payload;
+  },
 };
 
 const Links = {
@@ -155,6 +164,9 @@ const Links = {
       state.initialresume.links,
       action.payload
     );
+  },
+  SetSelectedLinkID: (state, action) => {
+    state.SelectedDispalyInfoID.SelectedLinkID = action.payload;
   },
 };
 
@@ -192,6 +204,11 @@ export const {
   DeleteSkill,
   DeleteSpokenLanguage,
   DeleteHobby,
+  // Set SelectedID in store of display info
+  SetSelectedLinkID,
+  SetSelectedEducationID,
+  SetSelectedProjectID,
+  SetSelectedWorkExperienceID,
 } = ResumeSlice.actions;
 
 export default ResumeSlice.reducer;

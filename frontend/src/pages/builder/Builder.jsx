@@ -83,7 +83,7 @@ const Builder = () => {
           data-bs-theme="dark"
         >
           <DisplayHomeIconButton path="/" variant="btn btn-outline-primary" />
-          <DisplayButton variant="outline-primary" title="Download Pdf" />
+          {/* <DisplayButton variant="outline-primary" title="Download Pdf" /> */}
           <DisplayButton variant="outline-primary" title="Save Changes" />
           <Navbar.Toggle />
         </Navbar>
@@ -101,9 +101,9 @@ const Builder = () => {
             </div>
           </div>
           <div className="PdfCanvas">
-            <Suspense fallback={<LoadingIndicator />}>
+            {/* <Suspense fallback={<LoadingIndicator />}>
               <PdfCanvas />
-            </Suspense>
+            </Suspense> */}
           </div>
         </div>
       </div>

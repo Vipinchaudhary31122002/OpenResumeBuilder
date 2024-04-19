@@ -1,6 +1,12 @@
 /* eslint-disable react/prop-types */
 import Toast from "react-bootstrap/Toast";
 import { useDispatch } from "react-redux";
+import {
+  SetSelectedLinkID,
+  SetSelectedProjectID,
+  SetSelectedEducationID,
+  SetSelectedWorkExperienceID,
+} from "src/redux/ResumeSlice";
 
 import {
   DeleteProject,
@@ -16,13 +22,15 @@ const DisplayWorkExperience = (props) => {
   const dispatch = useDispatch();
   const DeleteData = () =>
     dispatch(DeleteWorkExperience(props.workexperience.id));
+  const SetSelectedID = () =>
+    dispatch(SetSelectedWorkExperienceID(props.workexperience.id));
   return (
     <>
       <Toast show={true} onClose={DeleteData} bg="primary" className="my-2">
         <Toast.Header>
           <strong
             className="me-auto"
-            onClick={() => alert("Click is working")}
+            onClick={SetSelectedID}
             style={{ cursor: "pointer" }}
           >
             {props.workexperience.company}
@@ -36,11 +44,19 @@ const DisplayWorkExperience = (props) => {
 const DisplayEducation = (props) => {
   const dispatch = useDispatch();
   const DeleteData = () => dispatch(DeleteEducation(props.education.id));
+  const SetSelectedID = () =>
+    dispatch(SetSelectedEducationID(props.education.id));
   return (
     <>
       <Toast show={true} onClose={DeleteData} bg="primary" className="my-2">
         <Toast.Header>
-          <strong className="me-auto">{props.education.universityname}</strong>
+          <strong
+            className="me-auto"
+            onClick={SetSelectedID}
+            style={{ cursor: "pointer" }}
+          >
+            {props.education.universityname}
+          </strong>
         </Toast.Header>
       </Toast>
     </>
@@ -50,9 +66,17 @@ const DisplayEducation = (props) => {
 const DisplayProject = (props) => {
   const dispatch = useDispatch();
   const DeleteData = () => dispatch(DeleteProject(props.project.id));
+  const SetSelectedID = () => dispatch(SetSelectedProjectID(props.project.id));
   return (
     <>
-      <Toast show={true} onClose={DeleteData} bg="primary" className="my-2">
+      <Toast
+        show={true}
+        onClose={DeleteData}
+        onClick={SetSelectedID}
+        style={{ cursor: "pointer" }}
+        bg="primary"
+        className="my-2"
+      >
         <Toast.Header>
           <strong className="me-auto">{props.project.name}</strong>
           <br />
@@ -65,11 +89,18 @@ const DisplayProject = (props) => {
 const DisplayLink = (props) => {
   const dispatch = useDispatch();
   const DeleteData = () => dispatch(DeleteLink(props.link.id));
+  const SetSelectedID = () => dispatch(SetSelectedLinkID(props.link.id));
   return (
     <>
       <Toast show={true} onClose={DeleteData} bg="primary" className="my-2">
         <Toast.Header>
-          <strong className="me-auto">{props.link.networkname}</strong>
+          <strong
+            className="me-auto"
+            onClick={SetSelectedID}
+            style={{ cursor: "pointer" }}
+          >
+            {props.link.networkname}
+          </strong>
         </Toast.Header>
       </Toast>
     </>
