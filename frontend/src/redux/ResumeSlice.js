@@ -104,6 +104,7 @@ const WorkExperiences = {
       id: nanoid(),
       ...action.payload,
     });
+    state.SelectedDispalyInfoID.SelectedWorkExperienceID = "";
   },
   DeleteWorkExperience: (state, action) => {
     state.initialresume.workexperiences = deleteObjectById(
@@ -122,6 +123,7 @@ const Educations = {
       id: nanoid(),
       ...action.payload,
     });
+    state.SelectedDispalyInfoID.SelectedEducationID = "";
   },
   DeleteEducation: (state, action) => {
     state.initialresume.educations = deleteObjectById(
@@ -140,6 +142,7 @@ const Projects = {
       id: nanoid(),
       ...action.payload,
     });
+    state.SelectedDispalyInfoID.SelectedProjectID = "";
   },
   DeleteProject: (state, action) => {
     state.initialresume.projects = deleteObjectById(
@@ -158,6 +161,7 @@ const Links = {
       id: nanoid(),
       ...action.payload,
     });
+    state.SelectedDispalyInfoID.SelectedLinkID = "";
   },
   DeleteLink: (state, action) => {
     state.initialresume.links = deleteObjectById(

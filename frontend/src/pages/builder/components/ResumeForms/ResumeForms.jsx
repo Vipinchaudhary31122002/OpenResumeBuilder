@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
-// import { useState } from "react";
-// import { BsPlus } from "react-icons/bs";
 import { toast } from "react-toastify";
+import { useEffect } from "react";
 // Redux imports
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -242,8 +241,18 @@ const PersonalDetailForm = () => {
 };
 
 const WorkExperienceForm = () => {
+  const WorkExperiences = useSelector(
+    (state) => state.resume.initialresume.workexperiences
+  );
   const dispatch = useDispatch();
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset, setValue } = useForm({
+    defaultValues: {
+      company: "",
+      position: "",
+      duration: "",
+      summary: "",
+    },
+  });
   const Add = (data) => {
     if (data.company.length == 0) {
       DisplayError("Company name is required");
@@ -252,9 +261,22 @@ const WorkExperienceForm = () => {
       reset();
     }
   };
-  const WorkExperiences = useSelector(
-    (state) => state.resume.initialresume.workexperiences
+  const SelectedWorkExperienceID = useSelector(
+    (state) => state.resume.SelectedDispalyInfoID.SelectedWorkExperienceID
   );
+  useEffect(() => {
+    if (SelectedWorkExperienceID !== 0) {
+      const selectedWorkExperience = WorkExperiences.find(
+        (link) => link.id === SelectedWorkExperienceID
+      );
+      if (selectedWorkExperience) {
+        setValue("company", selectedWorkExperience.company);
+        setValue("position", selectedWorkExperience.position);
+        setValue("duration", selectedWorkExperience.duration);
+        setValue("summary", selectedWorkExperience.summary);
+      }
+    }
+  }, [SelectedWorkExperienceID, WorkExperiences, setValue]);
   return (
     <>
       <form onSubmit={handleSubmit(Add)}>
@@ -316,8 +338,16 @@ const WorkExperienceForm = () => {
 };
 
 const ProjectForm = () => {
+  const Projects = useSelector((state) => state.resume.initialresume.projects);
   const dispatch = useDispatch();
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset, setValue } = useForm({
+    defaultValues: {
+      name: "",
+      url: "",
+      duration: "",
+      summary: "",
+    },
+  });
   const onSubmit = (data) => {
     if (data.name.length == 0) {
       DisplayError("Project name is required");
@@ -326,7 +356,22 @@ const ProjectForm = () => {
       reset();
     }
   };
-  const Projects = useSelector((state) => state.resume.initialresume.projects);
+  const SelectedProjectID = useSelector(
+    (state) => state.resume.SelectedDispalyInfoID.SelectedProjectID
+  );
+  useEffect(() => {
+    if (SelectedProjectID !== 0) {
+      const selectedProject = Projects.find(
+        (link) => link.id === SelectedProjectID
+      );
+      if (selectedProject) {
+        setValue("name", selectedProject.name);
+        setValue("duration", selectedProject.duration);
+        setValue("url", selectedProject.url);
+        setValue("summary", selectedProject.summary);
+      }
+    }
+  }, [SelectedProjectID, Projects, setValue]);
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -388,14 +433,17 @@ const ProjectForm = () => {
 };
 
 const LinkForm = () => {
+  // reading links from store and then display them as display badges below form
   const Links = useSelector((state) => state.resume.initialresume.links);
-  // const [show, setShow] = useState(false);
-  // console.log("LinkForm ", show);
-  // const HandleModalForm = () => {
-  //   setShow(true);
-  // };
   const dispatch = useDispatch();
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset, setValue } = useForm({
+    defaultValues: {
+      networkname: "",
+      username: "",
+      profileurl: "",
+    },
+  });
+  // function to create data in store
   const onSubmit = (data) => {
     if (data.networkname.length == 0) {
       DisplayError("Network name is required");
@@ -404,62 +452,64 @@ const LinkForm = () => {
       reset();
     }
   };
+  // reading selected link id in state if it not equal to zero means something is present in state then we are going to read particular link object from state and populate form field with it
+  const SelectedLinkID = useSelector(
+    (state) => state.resume.SelectedDispalyInfoID.SelectedLinkID
+  );
+  useEffect(() => {
+    if (SelectedLinkID !== 0) {
+      const selectedLink = Links.find((link) => link.id === SelectedLinkID);
+      if (selectedLink) {
+        setValue("networkname", selectedLink.networkname);
+        setValue("username", selectedLink.username);
+        setValue("profileurl", selectedLink.profileurl);
+      }
+    }
+  }, [SelectedLinkID, Links, setValue]);
   return (
     <>
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Form.Group className="mb-1">
-        <Form.Label className="mb-0">Network name</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="LinkedIn"
-          size="sm"
-          {...register("networkname")}
-        />
-      </Form.Group>
-      <Form.Group className="mb-1">
-        <Form.Label className="mb-0">Username</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="jhonedoe"
-          size="sm"
-          {...register("username")}
-        />
-      </Form.Group>
-      <Form.Group className="mb-1">
-        <Form.Label className="mb-0">Profile URL</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="jhonedoe@linkedin.com"
-          size="sm"
-          {...register("profileurl")}
-        />
-      </Form.Group>
-      <hr />
-      <div className="d-flex justify-content-between">
-        <DisplayFormButton
-          variant="outline-primary"
-          title="Add"
-          type="submit"
-        />
-        <DisplayFormButton
-          variant="outline-primary"
-          title="Save Changes"
-          type="submit"
-        />
-      </div>
-    </form>
-      {/* <div className="card text-bg-dark" style={{ width: "22rem" }}>
-        <BsPlus
-          className="card-img-top"
-          style={{ height: "5rem", color: "white" }}
-        />
-        <div className="card-body">
-          <p className="card-text">
-            <b>Click to create new Link</b>
-          </p>
-          <button onClick={HandleModalForm}> second button for testing</button>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Network name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="LinkedIn"
+            size="sm"
+            {...register("networkname")}
+          />
+        </Form.Group>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Username</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="jhonedoe"
+            size="sm"
+            {...register("username")}
+          />
+        </Form.Group>
+        <Form.Group className="mb-1">
+          <Form.Label className="mb-0">Profile URL</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="jhonedoe@linkedin.com"
+            size="sm"
+            {...register("profileurl")}
+          />
+        </Form.Group>
+        <hr />
+        <div className="d-flex justify-content-between">
+          <DisplayFormButton
+            variant="outline-primary"
+            title="Add"
+            type="submit"
+          />
+          <DisplayFormButton
+            variant="outline-primary"
+            title="Save Changes"
+            type="submit"
+          />
         </div>
-      </div> */}
+      </form>
       {Links?.map((link, index) => (
         <DisplayLink link={link} key={index} />
       ))}
@@ -468,8 +518,19 @@ const LinkForm = () => {
 };
 
 const EducationForm = () => {
+  const Educations = useSelector(
+    (state) => state.resume.initialresume.educations
+  );
   const dispatch = useDispatch();
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset, setValue } = useForm({
+    defaultValues: {
+      universityname: "",
+      degreename: "",
+      grade: "",
+      duration: "",
+      summary: "",
+    },
+  });
   const onSubmit = (data) => {
     if (data.universityname.length == 0) {
       DisplayError("University name is required");
@@ -478,9 +539,23 @@ const EducationForm = () => {
       reset();
     }
   };
-  const Educations = useSelector(
-    (state) => state.resume.initialresume.educations
+  const SelectedEducationID = useSelector(
+    (state) => state.resume.SelectedDispalyInfoID.SelectedEducationID
   );
+  useEffect(() => {
+    if (SelectedEducationID !== 0) {
+      const selectedEducation = Educations.find(
+        (link) => link.id === SelectedEducationID
+      );
+      if (selectedEducation) {
+        setValue("universityname", selectedEducation.universityname);
+        setValue("degreename", selectedEducation.degreename);
+        setValue("grade", selectedEducation.grade);
+        setValue("duration", selectedEducation.duration);
+        setValue("summary", selectedEducation.summary);
+      }
+    }
+  }, [SelectedEducationID, Educations, setValue]);
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
