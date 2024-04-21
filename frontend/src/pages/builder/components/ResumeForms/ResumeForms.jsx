@@ -323,11 +323,11 @@ const WorkExperienceForm = () => {
             title="Add"
             type="submit"
           />
-          <DisplayFormButton
+          {/* <DisplayFormButton
             variant="outline-primary"
             title="Save Changes"
             type="submit"
-          />
+          /> */}
         </div>
       </form>
       {WorkExperiences.map((workexperience, index) => (
@@ -418,11 +418,11 @@ const ProjectForm = () => {
             title="Add"
             type="submit"
           />
-          <DisplayFormButton
+          {/* <DisplayFormButton
             variant="outline-primary"
             title="Save Changes"
             type="submit"
-          />
+          /> */}
         </div>
       </form>
       {Projects.map((project, index) => (
@@ -466,6 +466,13 @@ const LinkForm = () => {
       }
     }
   }, [SelectedLinkID, Links, setValue]);
+  // const UpdateLink = () => {
+  //   if (SelectedLinkID.length != 0) {
+  //     console.log(SelectedLinkID);
+  //   } else {
+  //     DisplayError("Link not selected");
+  //   }
+  // };
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -503,11 +510,12 @@ const LinkForm = () => {
             title="Add"
             type="submit"
           />
-          <DisplayFormButton
+         {/* <DisplayFormButton
             variant="outline-primary"
             title="Save Changes"
             type="submit"
-          />
+            onClick={UpdateLink}
+          /> */}
         </div>
       </form>
       {Links?.map((link, index) => (
@@ -611,11 +619,11 @@ const EducationForm = () => {
             title="Add"
             type="submit"
           />
-          <DisplayFormButton
+          {/* <DisplayFormButton
             variant="outline-primary"
             title="Save Changes"
             type="submit"
-          />
+          /> */}
         </div>
       </form>
 
