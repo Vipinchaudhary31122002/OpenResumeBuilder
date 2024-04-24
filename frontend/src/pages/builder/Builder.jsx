@@ -101,9 +101,9 @@ const Builder = () => {
             </div>
           </div>
           <div className="PdfCanvas">
-            {/* <Suspense fallback={<LoadingIndicator />}>
+            <Suspense fallback={<LoadingIndicator />}>
               <PdfCanvas />
-            </Suspense> */}
+            </Suspense>
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   Page,
   Text,
@@ -6,39 +7,39 @@ import {
   StyleSheet,
   Font,
 } from "@react-pdf/renderer";
-import garamond from 'src/assets/garamond-font/cormorant-garamond-v16-latin-regular.ttf';
-import garamondItalic from 'src/assets/garamond-font/cormorant-garamond-v16-latin-italic.ttf';
-import garamondBold from 'src/assets/garamond-font/cormorant-garamond-v16-latin-700.ttf';
+import garamond from "src/assets/garamond-font/cormorant-garamond-v16-latin-regular.ttf";
+import garamondItalic from "src/assets/garamond-font/cormorant-garamond-v16-latin-italic.ttf";
+import garamondBold from "src/assets/garamond-font/cormorant-garamond-v16-latin-700.ttf";
 import fontSettings from "src/assets/fontSettings";
+import { useSelector } from "react-redux";
 
 // Register font
-Font.register({ 
-  family: 'Garamond',
+Font.register({
+  family: "Garamond",
   fonts: [
     { src: garamond },
-    { src: garamondItalic, fontStyle: 'italic' },
+    { src: garamondItalic, fontStyle: "italic" },
     { src: garamondBold, fontWeight: 700 },
-  ]
-})
+  ],
+});
 
 const styles = StyleSheet.create({
   page: {
     padding: 30,
     fontFamily: fontSettings.regularFont,
-    display: 'flex',
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column",
     gap: 5,
   },
   section: {
     margin: 10,
     padding: 10,
-    flexGrow: 1
+    flexGrow: 1,
   },
   summary: {
     fontSize: 12,
-  }
+  },
 });
-
 
 // const commonStyles = StyleSheet.create({
 //   bulletBlock: {
@@ -153,17 +154,17 @@ const styles = StyleSheet.create({
 //   );
 // }
 
-const AlphaTemplate = () => {
+const AlphaTemplate = (props) => {
+  const fullname = props.data.fullname; // Assuming 'personal' is nested inside 'data'
   return (
-    <>
-      <Document>
-        <Page size="A4" style={styles.page}>
-          <View style={styles.section}>
-            <Text style={styles.heading}>Resume Template Section These font family is working</Text>
-          </View>
-        </Page>
-      </Document>
-    </>
+    <Document>
+      <Page size="A4">
+        <View>
+          <Text>Resume Template {fullname ?? ""}</Text>
+        </View>
+      </Page>
+    </Document>
   );
 };
+
 export default AlphaTemplate;
