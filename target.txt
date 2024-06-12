@@ -1,0 +1,100 @@
+# OpenResumeBuilder
+- PROBLEM DOMAIN: i will solve the problem of maintaining the data and resume that are applied to different companies so that it become easy for company to maintain with which resume i have applied to different and for what role.
+- Future targets:
+	- sign up and sign in and forgot password 
+	- Implement save changes feature of the forms.
+	- Add seperate download button as in semester project i am using build in download button.
+	- Dispaly pdf as images on canvas
+	- Create multiple templates and save these templates in database so we can implement subscription based project 
+	- impletement auto rendering of data in pdf without using buttons.
+	- Implement dashboard, account settings and job applied 
+	- Figure out a way for not rendering the pdf cavas again again but actually only rendering the test inside the pdf again and again
+	- Add dashboad which will display all the pdf created.
+	- Add modal ui for all the forms leaving personal details forms.
+	- added the setting page
+	- Hosted resume website
+	- Ai functionality for making resume
+	- Multiple resume
+	- Display pdf as images
+	- Solving the problem domain
+	- Forgot password
+	- Email functionality
+	- Admin panel which show all the details all the user and it session info  which 
+	- Subscription model based template which also implement payment integrations
+	- Resume parser features
+	- Google authentication
+	- payment integration
+	- Download pdf on phone directly by scanning QR code
+	- Different languages support
+	- 2 factor authentication for verifying user
+	- Add feature for custom sections in resume form
+	- applied jobs features
+	- responsive design 
+
+# ResumeForm
+- PERSONAL FORM
+    - FullName
+    - Email
+    - Phone number
+    - Custom field - name and value
+- SUMMARY FORM
+- LINKS FORM
+    - Network name
+    - Link url
+    - Link username
+- WORK EXPERIENCE
+    - Company name
+    - Job title
+    - Duration
+    - Description
+- PROJECT
+    - Project name
+    - Project description
+    - Project duration
+    - Project website
+    - Project tech stack
+- EDUCATION
+    - University name
+    - degree
+    - duration
+    - grade
+    - description
+- SKILLS which only name of those skills
+- SPOKEN LANGUAGES which only contain name of those languages
+- CERTIFICATES
+    - Certificate name
+    - Organization which gives you the certificate
+    - date
+    - description about certificates
+# ResumeSetting
+- Document size will be decided by me
+- Multiple template
+- template layout
+- Font size will be decided by me
+- Font family will be decided by me
+# UserDocument of database
+- Created date
+- Username
+- Email
+- Password
+- Resume: [ ]
+# ResumeDocument of database
+- Fullname
+- Headline
+- Email
+- Website
+- Phone no
+- address
+- Summary
+- Profiles: [ Network, Username, Website]
+- Experience: [Company, Position, Duration, location, Website, Summary]
+- Education: [Universityname, Degree, Score, Duration, Website, Summary]
+- Skills: [name]
+- Languages: []
+- Awards: [title, date, summary, organization]
+- Certification: [name, description, duration, website, summary, keyword[]]
+- Intersets: [ ]
+- Projects: [{name, description, duration, website, summary, keywords[]}]
+- Publication: [ { Name, publisher, data, website, summary }]
+- Volunteering: [ { Organization, position, duration, location, website, summary} ]
+- References: [ name, description, website, summary]
