@@ -1,28 +1,48 @@
 import mongoose from "mongoose";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
+import { SECRET_TOKEN_KEY } from "../constants.js";
+import jwt from "jsonwebtoken";
+const userSchema = new mongoose.Schema(
+  {
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    username: {
+      type: String,
+      required: true,
+    },
+    password: {
+      type: String,
+      min: 4,
+      required: true,
+    },
+  },
+  { collection: "Users", timestamps: true }
+);
 
-const userSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    required: [true, "Your email address is required"],
-    unique: true,
-  },
-  username: {
-    type: String,
-    required: [true, "Your username is required"],
-  },
-  password: {
-    type: String,
-    required: [true, "Your password is required"],
-  },
-  createdAt: {
-    type: Date,
-    default: new Date(),
-  },
-}, { collection: 'Users' });
-
-userSchema.pre("save", async function () {
-  this.password = await bcrypt.hash(this.password, 12);
+userSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) {
+    return next();
+  }
+  try {
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+  } catch (error) {
+    next(error);
+  }
 });
 
-export const User= mongoose.model("User", userSchema);
+userSchema.methods.getJWTToken = function () {
+  return jwt.sign(
+    { id: this._id, username: this.username, email: this.email },
+    SECRET_TOKEN_KEY,
+    {
+      expiresIn: "10h",
+    }
+  );
+};
+
+export const User = mongoose.model("User", userSchema);
